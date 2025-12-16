@@ -1,0 +1,19 @@
+# Robots.txt for WC Travel Info
+# FIFA World Cup 2026 Educational Content
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update domain when deployed)
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Allow all search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow admin or private areas (none currently)
+# Disallow: /admin/
+
