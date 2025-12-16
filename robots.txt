@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location (update domain when deployed)
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://canadamexicovisa.info/sitemap.xml
 
 # Allow all search engine crawlers
 User-agent: Googlebot

@@ -1,9 +1,9 @@
-# WC Travel Info - Production Setup Guide
+# Canada Mexico Visa Info - Production Setup Guide
 
 ## ✅ Pre-Deployment Checklist
 
 ### 1. Update Domain References
-Replace `yourdomain.com` with your actual domain in these files:
+Replace `canadamexicovisa.info` with your actual domain in these files:
 - [ ] `index.html` - canonical URL, Open Graph URLs, structured data
 - [ ] `privacy.html` - if any URLs mentioned
 - [ ] `terms.html` - if any URLs mentioned  
@@ -98,13 +98,13 @@ Generate these images for full PWA/social support:
 1. Go to https://search.google.com/search-console
 2. Add your property (domain)
 3. Verify ownership
-4. Submit sitemap: `https://yourdomain.com/sitemap.xml`
+4. Submit sitemap: `https://canadamexicovisa.info/sitemap.xml`
 
 ---
 
 ## 📊 Post-Launch Tasks
 
-- [ ] Verify ads.txt is accessible: `yourdomain.com/ads.txt`
+- [ ] Verify ads.txt is accessible: `canadamexicovisa.info/ads.txt`
 - [ ] Test on mobile devices
 - [ ] Submit to Google Search Console
 - [ ] Monitor AdSense for approval status
