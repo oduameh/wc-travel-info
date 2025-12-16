@@ -1380,6 +1380,295 @@ strong {
 }
 
 /* =====================================================
+   PREMIUM HIGH-VALUE SECTIONS
+   ===================================================== */
+.premium-section {
+    border-top: 3px solid var(--color-accent);
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+}
+
+.premium-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    transition: all var(--transition-base);
+}
+
+.premium-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.premium-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.premium-card h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.premium-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .premium-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Info Box Variants */
+.info-box {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.info-box h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-md);
+}
+
+.info-box p {
+    margin-bottom: var(--space-sm);
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-box ul {
+    margin: var(--space-md) 0 0;
+    padding-left: var(--space-xl);
+}
+
+.info-box.warning {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border-color: #F59E0B;
+}
+
+.info-box.warning h4 {
+    color: #B45309;
+}
+
+.info-box.legal {
+    background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+    border-color: #8B5CF6;
+}
+
+.info-box.legal h4 {
+    color: #6D28D9;
+}
+
+.disclaimer-inline {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    padding: var(--space-md);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-lg);
+}
+
+/* Education Section */
+.highlight-box.education {
+    background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+    border-color: #3B82F6;
+}
+
+.highlight-box.education h4 {
+    color: #1D4ED8;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+}
+
+.edu-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.edu-card h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+}
+
+.edu-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .education-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Finance Section */
+.finance-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+}
+
+.finance-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.finance-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.finance-card h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.finance-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .finance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .finance-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Cost Estimate Box */
+.cost-estimate {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-xl) 0;
+    color: white;
+}
+
+.cost-estimate h4 {
+    color: white;
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.cost-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+}
+
+.cost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+.cost-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.cost-range {
+    font-weight: 700;
+    color: var(--color-accent-light);
+}
+
+.cost-note {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-align: center;
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+}
+
+@media (min-width: 640px) {
+    .cost-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Immigration Section */
+.immigration-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.country-immigration {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+}
+
+.country-immigration h4 {
+    color: var(--color-primary-dark);
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+}
+
+.country-immigration ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-xl);
+}
+
+.country-immigration li {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+}
+
+.country-immigration .note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+    .immigration-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =====================================================
    DISCLAIMER SECTION
    ===================================================== */
 .disclaimer-section {
