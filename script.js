@@ -1,16 +1,26 @@
 /**
- * WC Travel Info - Interactive Features
- * FIFA World Cup 2026 Educational Content
+ * Canada Mexico Visa Info - Interactive Features
  * Enhanced JavaScript for better engagement
+ * Includes bot detection for AdSense compliance
  */
 
 (function() {
     'use strict';
 
+    // Bot detection - runs first
+    const isBot = detectBot();
+    
     // Wait for DOM to be ready
     document.addEventListener('DOMContentLoaded', init);
 
     function init() {
+        // Skip initialization for bots
+        if (isBot) {
+            console.log('Bot detected - limited functionality');
+            markAsBot();
+            return;
+        }
+        
         initSmoothScroll();
         initScrollAnimations();
         initHeaderScroll();
@@ -18,6 +28,113 @@
         initFAQTracking();
         initScrollDepthTracking();
         initEngagementTracking();
+        initHumanVerification();
+    }
+
+    /**
+     * Bot Detection System
+     * Checks for common bot signatures
+     */
+    function detectBot() {
+        const ua = navigator.userAgent.toLowerCase();
+        
+        // Known bot user agents
+        const botPatterns = [
+            'bot', 'crawl', 'spider', 'slurp', 'mediapartners',
+            'adsbot', 'bingbot', 'googlebot', 'yandex', 'baidu',
+            'facebookexternalhit', 'twitterbot', 'rogerbot', 'linkedinbot',
+            'embedly', 'quora link preview', 'showyoubot', 'outbrain',
+            'pinterest', 'developers.google.com', 'slackbot', 'vkshare',
+            'w3c_validator', 'redditbot', 'applebot', 'whatsapp',
+            'flipboard', 'tumblr', 'bitlybot', 'skypeuripreview',
+            'nuzzel', 'discordbot', 'google page speed', 'qwantify',
+            'pinterestbot', 'bitrix', 'xing-contenttabreceiver',
+            'chrome-lighthouse', 'headlesschrome', 'phantomjs', 'selenium'
+        ];
+        
+        // Check user agent
+        for (const pattern of botPatterns) {
+            if (ua.includes(pattern)) {
+                return true;
+            }
+        }
+        
+        // Check for headless browser indicators
+        if (navigator.webdriver) return true;
+        if (!navigator.languages || navigator.languages.length === 0) return true;
+        if (navigator.plugins && navigator.plugins.length === 0 && ua.includes('chrome')) return true;
+        
+        // Check for suspicious properties
+        if (window._phantom || window.__nightmare || window.callPhantom) return true;
+        if (document.documentElement.getAttribute('webdriver')) return true;
+        
+        return false;
+    }
+
+    /**
+     * Mark page for bot traffic (for server-side tracking)
+     */
+    function markAsBot() {
+        document.documentElement.classList.add('is-bot');
+        
+        // Disable ad loading for bots (prevents invalid impressions)
+        const adUnits = document.querySelectorAll('.adsbygoogle');
+        adUnits.forEach(ad => {
+            ad.style.display = 'none';
+        });
+        
+        // Set cookie/storage for server-side detection
+        try {
+            sessionStorage.setItem('isBot', 'true');
+        } catch(e) {}
+    }
+
+    /**
+     * Human verification through interaction
+     * Tracks real user behavior patterns
+     */
+    function initHumanVerification() {
+        let humanScore = 0;
+        let verified = false;
+        
+        const verifyHuman = () => {
+            if (verified) return;
+            humanScore++;
+            
+            // After multiple human-like interactions, mark as verified
+            if (humanScore >= 3) {
+                verified = true;
+                document.documentElement.classList.add('human-verified');
+                try {
+                    sessionStorage.setItem('humanVerified', 'true');
+                } catch(e) {}
+                console.log('Human user verified');
+            }
+        };
+        
+        // Track human-like behaviors
+        document.addEventListener('mousemove', debounce(verifyHuman, 1000), { once: false });
+        document.addEventListener('scroll', debounce(verifyHuman, 1000), { once: false });
+        document.addEventListener('touchstart', verifyHuman, { once: true });
+        document.addEventListener('keydown', verifyHuman, { once: true });
+        
+        // Check for natural mouse movement patterns
+        let lastX = 0, lastY = 0, movements = 0;
+        document.addEventListener('mousemove', (e) => {
+            const deltaX = Math.abs(e.clientX - lastX);
+            const deltaY = Math.abs(e.clientY - lastY);
+            
+            // Real humans have varied, non-linear mouse movements
+            if (deltaX > 0 && deltaY > 0 && deltaX !== deltaY) {
+                movements++;
+                if (movements >= 5) {
+                    verifyHuman();
+                }
+            }
+            
+            lastX = e.clientX;
+            lastY = e.clientY;
+        });
     }
 
     /**
