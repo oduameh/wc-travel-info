@@ -21,7 +21,7 @@ Replace `canadamexicovisa.info` with your actual domain in these files:
 After AdSense approval, create ad units:
 1. Go to https://www.google.com/adsense
 2. Create 6 display ad units (responsive)
-3. Replace each `data-ad-slot="XXXXXXXXXX"` in `index.html` with actual slot IDs
+3. Replace each `data-ad-slot="9057164066"` in `index.html` with actual slot IDs
 
 ### 4. Create Missing Image Assets
 Generate these images for full PWA/social support:
