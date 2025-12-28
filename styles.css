@@ -2229,3 +2229,158 @@ li { margin-bottom: 0.25em; }
 .takeaway p {
     margin: 0;
 }
+
+/* =====================================================
+   HIGH-VIEWABILITY AD OPTIMIZATION
+   Sticky ads, anchor ads, and improved placements
+   ===================================================== */
+
+/* Sticky Bottom Anchor Ad - ALWAYS VISIBLE */
+.sticky-bottom-ad {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 2px solid var(--gc-border);
+    padding: 8px 10px;
+    z-index: 9998;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.sticky-bottom-ad .ad-label {
+    font-size: 0.65rem;
+    color: var(--gc-text-muted);
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sticky-bottom-ad .close-ad {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: var(--gc-bg-alt);
+    border: 1px solid var(--gc-border);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--gc-text-muted);
+}
+
+.sticky-bottom-ad .close-ad:hover {
+    background: var(--gc-danger-bg);
+    color: var(--gc-danger);
+}
+
+/* Add padding to body to prevent content being hidden by sticky ad */
+body.has-sticky-ad {
+    padding-bottom: 100px;
+}
+
+/* High-visibility in-content ad */
+.ad-container.high-visibility {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid var(--gc-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.ad-container.high-visibility .ad-label {
+    font-size: 0.7rem;
+    color: var(--gc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Sidebar sticky ad for desktop */
+@media (min-width: 1200px) {
+    .content-with-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 30px;
+    }
+    
+    .sidebar-ad {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+}
+
+/* Native-style in-feed ad */
+.native-ad {
+    background: var(--gc-bg-alt);
+    border: 1px solid var(--gc-border);
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 8px;
+}
+
+.native-ad::before {
+    content: "Sponsored";
+    font-size: 0.7rem;
+    color: var(--gc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Mid-content highlight ad */
+.mid-content-ad {
+    background: linear-gradient(90deg, var(--gc-info-bg) 0%, #fff 50%, var(--gc-info-bg) 100%);
+    border-top: 3px solid var(--gc-info);
+    border-bottom: 3px solid var(--gc-info);
+    padding: 20px;
+    margin: 40px -20px;
+    text-align: center;
+}
+
+/* Interstitial-style break ad */
+.break-ad {
+    background: var(--gc-bg-dark);
+    color: white;
+    padding: 30px 20px;
+    margin: 40px -20px;
+    text-align: center;
+}
+
+.break-ad .ad-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile-optimized ad sizes */
+@media (max-width: 768px) {
+    .sticky-bottom-ad {
+        padding: 6px 8px;
+    }
+    
+    body.has-sticky-ad {
+        padding-bottom: 80px;
+    }
+    
+    .ad-container.high-visibility {
+        margin: 20px -15px;
+        border-radius: 0;
+    }
+}
+
+/* Ensure ads don't break layout */
+.ad-unit {
+    overflow: hidden;
+    min-height: 50px;
+}
+
+.ad-unit ins {
+    display: block !important;
+}

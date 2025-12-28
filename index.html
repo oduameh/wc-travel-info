@@ -46,10 +46,16 @@
         gtag('config', 'G-J4C1Z3P77F');
     </script>
     
-    <!-- Google AdSense -->
+    <!-- Google AdSense with Auto Ads enabled -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212022468120924" crossorigin="anonymous"></script>
-    <!-- AdSense Verification Meta Tag (Alternative to ads.txt) -->
     <meta name="google-adsense-account" content="ca-pub-3212022468120924">
+    <!-- Enable Auto Ads for maximum fill rate -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3212022468120924",
+            enable_page_level_ads: true
+        });
+    </script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -734,6 +740,21 @@
         </div>
     </footer>
 
+    <!-- Sticky Bottom Anchor Ad - HIGH VIEWABILITY -->
+    <div class="sticky-bottom-ad" id="stickyAd">
+        <button class="close-ad" onclick="document.getElementById('stickyAd').style.display='none'; document.body.classList.remove('has-sticky-ad');" aria-label="Close ad">×</button>
+        <span class="ad-label">Advertisement</span>
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:320px;height:50px"
+            data-ad-client="ca-pub-3212022468120924"
+            data-ad-slot="9057164066"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        // Add body class for sticky ad padding
+        document.body.classList.add('has-sticky-ad');
+    </script>
 </body>
 </html>
