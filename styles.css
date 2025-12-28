@@ -2384,3 +2384,119 @@ body.has-sticky-ad {
 .ad-unit ins {
     display: block !important;
 }
+
+/* =====================================================
+   ENGAGEMENT BOOSTING STYLES
+   Reduce bounce rate, increase time on page
+   ===================================================== */
+
+/* Commitment Box */
+.commitment-box {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulsing CTA buttons */
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+    50% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+}
+
+/* Scroll indicator arrow */
+.scroll-indicator {
+    position: fixed;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce-arrow 2s infinite;
+    z-index: 100;
+}
+
+@keyframes bounce-arrow {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* Content reveal on scroll */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Progress milestone badges */
+.milestone-badge {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+    animation: slideInRight 0.5s ease;
+    z-index: 9999;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Floating social proof */
+.social-proof-float {
+    position: fixed;
+    bottom: 150px;
+    left: 20px;
+    background: white;
+    border: 1px solid var(--gc-border);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 280px;
+    z-index: 9990;
+    animation: slideInLeft 0.5s ease;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* "Keep reading" prompt */
+.keep-reading-prompt {
+    background: linear-gradient(90deg, transparent, var(--gc-info-bg), transparent);
+    padding: 20px;
+    text-align: center;
+    margin: 30px 0;
+    border-top: 2px dashed var(--gc-info);
+    border-bottom: 2px dashed var(--gc-info);
+}
+
+.keep-reading-prompt strong {
+    color: var(--gc-info);
+}
+
+/* Highlight key stats to catch eye */
+.eye-catch {
+    background: linear-gradient(135deg, #ffd700, #ffb700);
+    color: #1a1a1a;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+}

@@ -2,6 +2,7 @@
  * Canada Mexico Visa Info - Interactive Features
  * Enhanced JavaScript for better engagement
  * Includes bot detection for AdSense compliance
+ * V2: Added engagement-boosting features to reduce bounce rate
  */
 
 (function() {
@@ -29,6 +30,12 @@
         initScrollDepthTracking();
         initEngagementTracking();
         initHumanVerification();
+        
+        // NEW: Engagement-boosting features
+        initExitIntentPopup();
+        initEngagementPrompts();
+        initScrollRewards();
+        initTimeOnPageTracker();
     }
 
     /**
@@ -398,5 +405,250 @@
 
     // Initialize tracking after page load
     window.addEventListener('load', trackOutboundLinks);
+
+    /**
+     * Exit Intent Popup - Captures users about to leave
+     * Shows a compelling reason to stay
+     */
+    function initExitIntentPopup() {
+        let popupShown = false;
+        
+        // Only show on article pages
+        if (!document.querySelector('.blog-article, .article-content')) return;
+        
+        // Create popup
+        const popup = document.createElement('div');
+        popup.id = 'exitPopup';
+        popup.innerHTML = `
+            <div class="exit-popup-overlay">
+                <div class="exit-popup-content">
+                    <button class="exit-popup-close" onclick="document.getElementById('exitPopup').style.display='none'">&times;</button>
+                    <h2>⏳ Wait! Don't Miss This...</h2>
+                    <p>You've only seen <strong><span id="readPercent">0</span>%</strong> of this guide!</p>
+                    <p>The best part (step-by-step action plan) is below. Keep reading to get:</p>
+                    <ul>
+                        <li>✅ Exact requirements for your situation</li>
+                        <li>✅ Cost breakdown in your currency</li>
+                        <li>✅ Common mistakes to avoid</li>
+                        <li>✅ Free resources and official links</li>
+                    </ul>
+                    <button class="exit-popup-btn" onclick="document.getElementById('exitPopup').style.display='none'; window.scrollBy({top: 300, behavior: 'smooth'});">
+                        Continue Reading →
+                    </button>
+                    <p class="exit-popup-note">Or press ESC to leave</p>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(popup);
+        
+        // Add styles
+        const style = document.createElement('style');
+        style.textContent = `
+            #exitPopup { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99999; }
+            .exit-popup-overlay { 
+                width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.8); 
+                display: flex; align-items: center; justify-content: center;
+                animation: fadeIn 0.3s ease;
+            }
+            .exit-popup-content {
+                background: white; padding: 30px; border-radius: 16px; max-width: 450px; margin: 20px;
+                text-align: center; position: relative; animation: slideUp 0.3s ease;
+            }
+            .exit-popup-close { 
+                position: absolute; top: 10px; right: 15px; 
+                background: none; border: none; font-size: 28px; cursor: pointer; color: #666;
+            }
+            .exit-popup-content h2 { color: #dc3545; margin-bottom: 15px; }
+            .exit-popup-content ul { text-align: left; margin: 20px 0; padding-left: 20px; }
+            .exit-popup-content li { margin: 8px 0; color: #333; }
+            .exit-popup-btn {
+                background: linear-gradient(135deg, #28a745, #20c997); color: white;
+                border: none; padding: 15px 30px; font-size: 18px; border-radius: 8px;
+                cursor: pointer; width: 100%; margin-top: 15px; font-weight: 600;
+            }
+            .exit-popup-btn:hover { transform: scale(1.02); }
+            .exit-popup-note { font-size: 12px; color: #999; margin-top: 15px; }
+            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        `;
+        document.head.appendChild(style);
+        
+        // Exit intent detection (mouse leaving viewport at top)
+        document.addEventListener('mouseout', (e) => {
+            if (popupShown) return;
+            if (e.clientY < 10 && e.relatedTarget === null) {
+                const scrollPercent = Math.round((window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+                // Only show if they haven't read much
+                if (scrollPercent < 50) {
+                    document.getElementById('readPercent').textContent = scrollPercent;
+                    popup.style.display = 'block';
+                    popupShown = true;
+                }
+            }
+        });
+        
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') popup.style.display = 'none';
+        });
+    }
+
+    /**
+     * Engagement Prompts - Micro-interactions that keep users scrolling
+     */
+    function initEngagementPrompts() {
+        // Create floating engagement bar
+        const engageBar = document.createElement('div');
+        engageBar.id = 'engageBar';
+        engageBar.innerHTML = `
+            <div class="engage-content">
+                <span class="engage-icon">📖</span>
+                <span class="engage-text">Keep scrolling for the good stuff...</span>
+                <span class="engage-arrow">↓</span>
+            </div>
+        `;
+        document.body.appendChild(engageBar);
+        
+        // Add styles
+        const style = document.createElement('style');
+        style.textContent = `
+            #engageBar {
+                position: fixed; bottom: 120px; left: 50%; transform: translateX(-50%);
+                background: linear-gradient(135deg, #26374A, #3d5a80); color: white;
+                padding: 12px 24px; border-radius: 50px; z-index: 9990;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3); display: none;
+                animation: bounce 2s infinite;
+            }
+            .engage-content { display: flex; align-items: center; gap: 10px; }
+            .engage-icon { font-size: 20px; }
+            .engage-text { font-size: 14px; font-weight: 500; }
+            .engage-arrow { animation: arrowBounce 1s infinite; }
+            @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-5px); } }
+            @keyframes arrowBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+            #engageBar.hide { display: none !important; }
+        `;
+        document.head.appendChild(style);
+        
+        // Show/hide based on scroll and time
+        let hasShown = false;
+        setTimeout(() => {
+            const scrollPercent = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent < 20 && !hasShown) {
+                engageBar.style.display = 'block';
+                hasShown = true;
+                
+                // Hide after 5 seconds or on scroll
+                setTimeout(() => { engageBar.style.display = 'none'; }, 5000);
+            }
+        }, 3000);
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 20) {
+                engageBar.style.display = 'none';
+            }
+        });
+    }
+
+    /**
+     * Scroll Rewards - Visual feedback for scrolling progress
+     */
+    function initScrollRewards() {
+        const milestones = [25, 50, 75, 100];
+        const reached = new Set();
+        
+        // Create reward toast
+        const toast = document.createElement('div');
+        toast.id = 'scrollToast';
+        document.body.appendChild(toast);
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            #scrollToast {
+                position: fixed; top: 80px; right: 20px;
+                background: linear-gradient(135deg, #28a745, #20c997); color: white;
+                padding: 15px 25px; border-radius: 12px; z-index: 9995;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                transform: translateX(150%); transition: transform 0.3s ease;
+                font-weight: 600;
+            }
+            #scrollToast.show { transform: translateX(0); }
+        `;
+        document.head.appendChild(style);
+        
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 3000);
+        }
+        
+        window.addEventListener('scroll', debounce(() => {
+            const scrollPercent = Math.round((window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            
+            milestones.forEach(milestone => {
+                if (scrollPercent >= milestone && !reached.has(milestone)) {
+                    reached.add(milestone);
+                    
+                    const messages = {
+                        25: "🔥 25% - You're getting to the good part!",
+                        50: "⭐ Halfway there! Key info coming up...",
+                        75: "🚀 75% - Almost done! Action steps below!",
+                        100: "🎉 You made it! Now take action!"
+                    };
+                    
+                    showToast(messages[milestone]);
+                }
+            });
+        }, 500));
+    }
+
+    /**
+     * Time on Page Tracker - Shows user how long they've been reading
+     */
+    function initTimeOnPageTracker() {
+        // Only on article pages
+        if (!document.querySelector('.blog-article, .article-content')) return;
+        
+        let seconds = 0;
+        
+        // Create timer display
+        const timer = document.createElement('div');
+        timer.id = 'readingTimer';
+        timer.innerHTML = '<span class="timer-icon">⏱️</span> Reading: <span id="timerValue">0:00</span>';
+        document.body.appendChild(timer);
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            #readingTimer {
+                position: fixed; top: 80px; left: 20px;
+                background: rgba(38, 55, 74, 0.95); color: white;
+                padding: 10px 18px; border-radius: 8px; z-index: 9990;
+                font-size: 14px; font-weight: 500;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                display: none;
+            }
+            .timer-icon { margin-right: 5px; }
+            @media (max-width: 768px) {
+                #readingTimer { top: auto; bottom: 130px; left: 10px; font-size: 12px; padding: 8px 12px; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Start timer after 5 seconds (to filter quick bounces)
+        setTimeout(() => {
+            timer.style.display = 'block';
+            
+            setInterval(() => {
+                if (!document.hidden) {
+                    seconds++;
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    document.getElementById('timerValue').textContent = 
+                        `${mins}:${secs.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }, 5000);
+    }
 
 })();
