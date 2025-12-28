@@ -96,6 +96,119 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #dc3545, #c82333); padding: 25px; margin-bottom: 20px; text-align: center; color: white; border-radius: 12px;">
+                    <h2 style="color: #fff; margin: 0 0 10px 0;">📊 Estimate Your CRS Score in 60 Seconds!</h2>
+                    <p style="color: #fff; margin: 0; opacity: 0.95;">Answer 5 quick questions to get your estimated CRS score and see if you can get an ITA.</p>
+                </div>
+
+                <!-- CRS QUICK ESTIMATOR QUIZ -->
+                <section id="crs-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 3px solid #dc3545; padding: 25px; border-radius: 12px;">
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #dc3545; border-radius: 8px;">
+                            <p><strong>Question 1:</strong> What is your age?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="crsQ1" value="110" onclick="updateCRSQuiz()"> 20-29 years (+110 points)</label>
+                                <label><input type="radio" name="crsQ1" value="99" onclick="updateCRSQuiz()"> 30-34 years (+99 points)</label>
+                                <label><input type="radio" name="crsQ1" value="77" onclick="updateCRSQuiz()"> 35-39 years (+77 points)</label>
+                                <label><input type="radio" name="crsQ1" value="50" onclick="updateCRSQuiz()"> 40-44 years (+50 points)</label>
+                                <label><input type="radio" name="crsQ1" value="25" onclick="updateCRSQuiz()"> 45+ years (+25 points)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #dc3545; border-radius: 8px;">
+                            <p><strong>Question 2:</strong> Highest education level?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="crsQ2" value="150" onclick="updateCRSQuiz()"> PhD (+150 points)</label>
+                                <label><input type="radio" name="crsQ2" value="135" onclick="updateCRSQuiz()"> Master's Degree (+135 points)</label>
+                                <label><input type="radio" name="crsQ2" value="120" onclick="updateCRSQuiz()"> Bachelor's Degree (4 years) (+120 points)</label>
+                                <label><input type="radio" name="crsQ2" value="98" onclick="updateCRSQuiz()"> 3-Year Diploma (+98 points)</label>
+                                <label><input type="radio" name="crsQ2" value="30" onclick="updateCRSQuiz()"> High School (+30 points)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #dc3545; border-radius: 8px;">
+                            <p><strong>Question 3:</strong> IELTS Score (all bands)?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="crsQ3" value="124" onclick="updateCRSQuiz()"> 8.0+ in all bands (+124 points)</label>
+                                <label><input type="radio" name="crsQ3" value="110" onclick="updateCRSQuiz()"> 7.0-7.5 in all bands (+110 points)</label>
+                                <label><input type="radio" name="crsQ3" value="90" onclick="updateCRSQuiz()"> 6.5 in all bands (+90 points)</label>
+                                <label><input type="radio" name="crsQ3" value="68" onclick="updateCRSQuiz()"> 6.0 in all bands (+68 points)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #dc3545; border-radius: 8px;">
+                            <p><strong>Question 4:</strong> Years of skilled work experience?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="crsQ4" value="80" onclick="updateCRSQuiz()"> 5+ years (+80 points)</label>
+                                <label><input type="radio" name="crsQ4" value="70" onclick="updateCRSQuiz()"> 3-4 years (+70 points)</label>
+                                <label><input type="radio" name="crsQ4" value="53" onclick="updateCRSQuiz()"> 2 years (+53 points)</label>
+                                <label><input type="radio" name="crsQ4" value="40" onclick="updateCRSQuiz()"> 1 year (+40 points)</label>
+                                <label><input type="radio" name="crsQ4" value="0" onclick="updateCRSQuiz()"> No experience (+0 points)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #dc3545; border-radius: 8px;">
+                            <p><strong>Question 5:</strong> Do you have a job offer from a Canadian employer?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="crsQ5" value="200" onclick="updateCRSQuiz()"> Yes, LMIA-approved (+200 points)</label>
+                                <label><input type="radio" name="crsQ5" value="50" onclick="updateCRSQuiz()"> Yes, LMIA-exempt (+50 points)</label>
+                                <label><input type="radio" name="crsQ5" value="0" onclick="updateCRSQuiz()"> No job offer (+0 points)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result" id="crsQuizResult" style="display: none; background: white; border: 3px solid #28a745; padding: 25px; border-radius: 12px; margin-top: 20px; text-align: center;">
+                            <h4>📊 Your Estimated CRS Score</h4>
+                            <p style="font-size: 3rem; font-weight: 700; color: #dc3545; margin: 15px 0;" id="crsScoreDisplay">0</p>
+                            <p id="crsScoreAdvice"></p>
+                            <p style="margin-top: 15px;"><strong>📖 Keep reading to learn strategies to BOOST your score!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                function updateCRSQuiz() {
+                    let total = 0;
+                    const q1 = document.querySelector('input[name="crsQ1"]:checked');
+                    const q2 = document.querySelector('input[name="crsQ2"]:checked');
+                    const q3 = document.querySelector('input[name="crsQ3"]:checked');
+                    const q4 = document.querySelector('input[name="crsQ4"]:checked');
+                    const q5 = document.querySelector('input[name="crsQ5"]:checked');
+                    
+                    if (q1) total += parseInt(q1.value);
+                    if (q2) total += parseInt(q2.value);
+                    if (q3) total += parseInt(q3.value);
+                    if (q4) total += parseInt(q4.value);
+                    if (q5) total += parseInt(q5.value);
+                    
+                    if (q1 && q2 && q3 && q4 && q5) {
+                        document.getElementById('crsQuizResult').style.display = 'block';
+                        document.getElementById('crsScoreDisplay').textContent = total;
+                        
+                        let advice = '';
+                        if (total >= 480) {
+                            advice = '🎉 Excellent! You likely qualify for an ITA in current draws. Apply ASAP!';
+                        } else if (total >= 450) {
+                            advice = '👍 Good score! You may receive an ITA soon. Consider PNP for extra 600 points.';
+                        } else if (total >= 400) {
+                            advice = '📈 Competitive score. Read our strategies below to boost your points!';
+                        } else {
+                            advice = '💡 Consider improving IELTS, getting more experience, or exploring PNP pathways.';
+                        }
+                        document.getElementById('crsScoreAdvice').textContent = advice;
+                    }
+                }
+                </script>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <div class="info-box warning">
                     <p><strong>⚠️ Disclaimer:</strong> This is educational information only. CRS cutoffs change with each draw. Always check <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html" target="_blank" rel="noopener">official IRCC website</a> for current information.</p>
                 </div>
@@ -104,6 +217,7 @@
                     <nav class="table-of-contents">
                         <h3>📑 Table of Contents</h3>
                         <ol>
+                            <li><a href="#crs-quiz">Quick CRS Score Estimator</a></li>
                             <li><a href="#what-is-crs">What is CRS?</a></li>
                             <li><a href="#recent-draws">Recent Draw Cutoffs</a></li>
                             <li><a href="#how-calculated">How CRS is Calculated</a></li>

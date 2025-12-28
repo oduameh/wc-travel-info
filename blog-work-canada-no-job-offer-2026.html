@@ -96,6 +96,101 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #28a745, #20c997); padding: 25px; margin-bottom: 20px; text-align: center; color: white; border-radius: 12px;">
+                    <h2 style="color: #fff; margin: 0 0 10px 0;">🎯 Which Pathway is Right For YOU? Find Out Now!</h2>
+                    <p style="color: #fff; margin: 0; opacity: 0.95;">Answer 4 quick questions to discover your best path to working in Canada without a job offer.</p>
+                </div>
+
+                <!-- PATHWAY FINDER QUIZ -->
+                <section id="pathway-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 3px solid #28a745; padding: 25px; border-radius: 12px;">
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #28a745; border-radius: 8px;">
+                            <p><strong>Question 1:</strong> Your age?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="pwQ1" value="young" onclick="updatePathwayQuiz()"> 18-30 years old</label>
+                                <label><input type="radio" name="pwQ1" value="prime" onclick="updatePathwayQuiz()"> 31-40 years old</label>
+                                <label><input type="radio" name="pwQ1" value="mature" onclick="updatePathwayQuiz()"> 41+ years old</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #28a745; border-radius: 8px;">
+                            <p><strong>Question 2:</strong> Highest education?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="pwQ2" value="degree" onclick="updatePathwayQuiz()"> Bachelor's degree or higher</label>
+                                <label><input type="radio" name="pwQ2" value="diploma" onclick="updatePathwayQuiz()"> Diploma/Certificate</label>
+                                <label><input type="radio" name="pwQ2" value="highschool" onclick="updatePathwayQuiz()"> High school only</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #28a745; border-radius: 8px;">
+                            <p><strong>Question 3:</strong> Are you from a country with IEC agreement (UK, Ireland, France, Germany, Australia, etc.)?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="pwQ3" value="yes" onclick="updatePathwayQuiz()"> Yes</label>
+                                <label><input type="radio" name="pwQ3" value="no" onclick="updatePathwayQuiz()"> No (Nigeria, Ghana, India, etc.)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #28a745; border-radius: 8px;">
+                            <p><strong>Question 4:</strong> What's your budget?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="pwQ4" value="high" onclick="updatePathwayQuiz()"> $30,000+ CAD (can afford study)</label>
+                                <label><input type="radio" name="pwQ4" value="medium" onclick="updatePathwayQuiz()"> $10,000-30,000 CAD</label>
+                                <label><input type="radio" name="pwQ4" value="low" onclick="updatePathwayQuiz()"> Under $10,000 CAD</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result" id="pathwayQuizResult" style="display: none; background: white; border: 3px solid #28a745; padding: 25px; border-radius: 12px; margin-top: 20px;">
+                            <h4>🛤️ Your Best Pathway:</h4>
+                            <p id="pathwayRecommendation" style="font-size: 1.3rem; font-weight: 700; color: #28a745;"></p>
+                            <p id="pathwayExplanation"></p>
+                            <p style="margin-top: 15px;"><strong>📖 Keep reading for detailed steps on each pathway!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                function updatePathwayQuiz() {
+                    const q1 = document.querySelector('input[name="pwQ1"]:checked');
+                    const q2 = document.querySelector('input[name="pwQ2"]:checked');
+                    const q3 = document.querySelector('input[name="pwQ3"]:checked');
+                    const q4 = document.querySelector('input[name="pwQ4"]:checked');
+                    
+                    if (q1 && q2 && q3 && q4) {
+                        document.getElementById('pathwayQuizResult').style.display = 'block';
+                        
+                        let pathway = '';
+                        let explanation = '';
+                        
+                        if (q3.value === 'yes' && q1.value === 'young') {
+                            pathway = '⭐ IEC Working Holiday Visa';
+                            explanation = 'You qualify for the easiest open work permit! Apply through the IEC pool.';
+                        } else if (q2.value === 'degree' && q1.value !== 'mature') {
+                            pathway = '🏆 Express Entry (FSW/CEC)';
+                            explanation = 'With your degree and age, Express Entry is your fastest path to PR!';
+                        } else if (q4.value === 'high') {
+                            pathway = '📚 Study → PGWP → PR Pathway';
+                            explanation = 'Study in Canada, get a 3-year open work permit, then apply for PR!';
+                        } else {
+                            pathway = '🍁 Provincial Nominee Program (PNP)';
+                            explanation = 'Consider PNP streams that may have lower requirements than Express Entry.';
+                        }
+                        
+                        document.getElementById('pathwayRecommendation').textContent = pathway;
+                        document.getElementById('pathwayExplanation').textContent = explanation;
+                    }
+                }
+                </script>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <div class="info-box warning">
                     <p><strong>⚠️ Disclaimer:</strong> This is educational information only. Immigration requirements change frequently. Always verify on <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html" target="_blank" rel="noopener">official IRCC website</a>.</p>
                 </div>
@@ -104,6 +199,7 @@
                     <nav class="table-of-contents">
                         <h3>📑 In This Article</h3>
                         <ol>
+                            <li><a href="#pathway-quiz">Find Your Best Pathway (Quiz)</a></li>
                             <li><a href="#intro">Can You Really Work Without a Job Offer?</a></li>
                             <li><a href="#express-entry">Pathway 1: Express Entry (Permanent Residence)</a></li>
                             <li><a href="#iec">Pathway 2: International Experience Canada (IEC)</a></li>

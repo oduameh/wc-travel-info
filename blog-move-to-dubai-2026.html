@@ -80,6 +80,108 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #C8102E, #00732F); padding: 25px; margin-bottom: 20px; text-align: center; color: white; border-radius: 12px;">
+                    <h2 style="color: #fff; margin: 0 0 10px 0;">🇦🇪 Can You Qualify for UAE Golden Visa? Find Out Now!</h2>
+                    <p style="color: #fff; margin: 0; opacity: 0.95;">Answer 4 quick questions to discover your best Dubai visa pathway.</p>
+                </div>
+
+                <!-- UAE VISA QUIZ -->
+                <section id="uae-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 3px solid #C8102E; padding: 25px; border-radius: 12px;">
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #C8102E; border-radius: 8px;">
+                            <p><strong>Question 1:</strong> What's your main goal?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="uaeQ1" value="job" onclick="updateUAEQuiz()"> Get a job in Dubai</label>
+                                <label><input type="radio" name="uaeQ1" value="business" onclick="updateUAEQuiz()"> Start a business/freelance</label>
+                                <label><input type="radio" name="uaeQ1" value="invest" onclick="updateUAEQuiz()"> Invest/Buy property</label>
+                                <label><input type="radio" name="uaeQ1" value="remote" onclick="updateUAEQuiz()"> Work remotely for foreign company</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #C8102E; border-radius: 8px;">
+                            <p><strong>Question 2:</strong> What's your budget/savings?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="uaeQ2" value="high" onclick="updateUAEQuiz()"> $500,000+ (can invest)</label>
+                                <label><input type="radio" name="uaeQ2" value="medium" onclick="updateUAEQuiz()"> $50,000-500,000</label>
+                                <label><input type="radio" name="uaeQ2" value="low" onclick="updateUAEQuiz()"> Under $50,000</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #C8102E; border-radius: 8px;">
+                            <p><strong>Question 3:</strong> Highest qualification?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="uaeQ3" value="phd" onclick="updateUAEQuiz()"> PhD</label>
+                                <label><input type="radio" name="uaeQ3" value="masters" onclick="updateUAEQuiz()"> Master's degree</label>
+                                <label><input type="radio" name="uaeQ3" value="bachelors" onclick="updateUAEQuiz()"> Bachelor's degree</label>
+                                <label><input type="radio" name="uaeQ3" value="other" onclick="updateUAEQuiz()"> Other</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #C8102E; border-radius: 8px;">
+                            <p><strong>Question 4:</strong> Monthly income (if working remotely)?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="uaeQ4" value="5k" onclick="updateUAEQuiz()"> $5,000+/month</label>
+                                <label><input type="radio" name="uaeQ4" value="3k" onclick="updateUAEQuiz()"> $3,000-5,000/month</label>
+                                <label><input type="radio" name="uaeQ4" value="low" onclick="updateUAEQuiz()"> Under $3,000/month</label>
+                                <label><input type="radio" name="uaeQ4" value="none" onclick="updateUAEQuiz()"> Not applicable</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result" id="uaeQuizResult" style="display: none; background: white; border: 3px solid #C8102E; padding: 25px; border-radius: 12px; margin-top: 20px;">
+                            <h4>🇦🇪 Your Best UAE/Dubai Pathway:</h4>
+                            <p id="uaePathway" style="font-size: 1.3rem; font-weight: 700; color: #C8102E;"></p>
+                            <p id="uaeExplanation"></p>
+                            <p style="margin-top: 15px;"><strong>📖 Keep reading for detailed requirements and application steps!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                function updateUAEQuiz() {
+                    const q1 = document.querySelector('input[name="uaeQ1"]:checked');
+                    const q2 = document.querySelector('input[name="uaeQ2"]:checked');
+                    const q3 = document.querySelector('input[name="uaeQ3"]:checked');
+                    const q4 = document.querySelector('input[name="uaeQ4"]:checked');
+                    
+                    if (q1 && q2 && q3 && q4) {
+                        document.getElementById('uaeQuizResult').style.display = 'block';
+                        
+                        let pathway = '';
+                        let explanation = '';
+                        
+                        if (q2.value === 'high') {
+                            pathway = '🏆 UAE Golden Visa (10 Years)';
+                            explanation = 'With your investment capacity, you qualify for the prestigious 10-year Golden Visa!';
+                        } else if (q3.value === 'phd' || (q3.value === 'masters' && q1.value === 'job')) {
+                            pathway = '⭐ Golden Visa - Talented Specialist';
+                            explanation = 'Your advanced degree makes you eligible for Golden Visa through the talent route!';
+                        } else if (q1.value === 'remote' && (q4.value === '5k' || q4.value === '3k')) {
+                            pathway = '💻 Remote Work Visa (1 Year)';
+                            explanation = 'Perfect! Work for your foreign employer while living tax-free in Dubai.';
+                        } else if (q1.value === 'business') {
+                            pathway = '🏢 Freelancer/Freezone Visa';
+                            explanation = 'Set up in a Free Zone, get your license, and sponsor your own visa!';
+                        } else {
+                            pathway = '💼 Employment Visa';
+                            explanation = 'Find a job in UAE and your employer will sponsor your visa.';
+                        }
+                        
+                        document.getElementById('uaePathway').textContent = pathway;
+                        document.getElementById('uaeExplanation').textContent = explanation;
+                    }
+                }
+                </script>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <div class="info-box warning">
                     <p><strong>⚠️ Disclaimer:</strong> This is educational information only. Always verify on <a href="https://u.ae/en/information-and-services/visa-and-emirates-id" target="_blank" rel="noopener">official UAE government portal</a>.</p>
                 </div>
@@ -88,6 +190,7 @@
                     <nav class="table-of-contents">
                         <h3>📑 Table of Contents</h3>
                         <ol>
+                            <li><a href="#uae-quiz">Find Your UAE Pathway (Quiz)</a></li>
                             <li><a href="#why-dubai">Why Move to Dubai/UAE?</a></li>
                             <li><a href="#pathways">Main Visa Types</a></li>
                             <li><a href="#golden-visa">UAE Golden Visa (10 Years)</a></li>

@@ -371,6 +371,88 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); padding: 25px; margin-bottom: 20px; text-align: center; color: white; border-radius: 12px;">
+                    <h2 style="color: #fff; margin: 0 0 10px 0;">🤖 Which AI Job Will Pay YOU the Most? Find Out Now!</h2>
+                    <p style="color: #fff; margin: 0; opacity: 0.95;">Answer 5 quick questions to discover your earning potential and best platform match.</p>
+                </div>
+
+                <!-- QUIZ MOVED TO TOP - Before all content -->
+                <section id="eligibility-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 3px solid #8b5cf6; padding: 25px; border-radius: 12px;">
+                        <div class="quiz-progress">
+                            <div class="quiz-progress-bar" id="quizProgressBarTop" style="width: 0%;"></div>
+                        </div>
+                        
+                        <div class="quiz-question" id="topQ1" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #8b5cf6; border-radius: 8px;">
+                            <p class="question-number">Question 1 of 5</p>
+                            <p><strong>Can you write well in English? (Articles, emails, creative writing)</strong></p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="topQ1" value="excellent" onclick="nextQuestionTop(1)"> Yes, I'm an excellent writer</label>
+                                <label><input type="radio" name="topQ1" value="good" onclick="nextQuestionTop(1)"> Good enough for professional communication</label>
+                                <label><input type="radio" name="topQ1" value="basic" onclick="nextQuestionTop(1)"> Basic - I can read and write but not professionally</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question hidden" id="topQ2" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #8b5cf6; border-radius: 8px;">
+                            <p class="question-number">Question 2 of 5</p>
+                            <p><strong>Do you know any programming/coding? (Python, JavaScript, etc.)</strong></p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="topQ2" value="expert" onclick="nextQuestionTop(2)"> Yes, I'm a developer/programmer</label>
+                                <label><input type="radio" name="topQ2" value="learning" onclick="nextQuestionTop(2)"> Learning / Know basics</label>
+                                <label><input type="radio" name="topQ2" value="none" onclick="nextQuestionTop(2)"> No coding knowledge</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question hidden" id="topQ3" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #8b5cf6; border-radius: 8px;">
+                            <p class="question-number">Question 3 of 5</p>
+                            <p><strong>How many hours per day can you dedicate to remote work?</strong></p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="topQ3" value="fulltime" onclick="nextQuestionTop(3)"> 6+ hours (looking for full-time income)</label>
+                                <label><input type="radio" name="topQ3" value="parttime" onclick="nextQuestionTop(3)"> 2-5 hours (side hustle)</label>
+                                <label><input type="radio" name="topQ3" value="minimal" onclick="nextQuestionTop(3)"> Less than 2 hours (spare time only)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question hidden" id="topQ4" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #8b5cf6; border-radius: 8px;">
+                            <p class="question-number">Question 4 of 5</p>
+                            <p><strong>What's your internet connection like?</strong></p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="topQ4" value="stable" onclick="nextQuestionTop(4)"> Stable broadband/fiber</label>
+                                <label><input type="radio" name="topQ4" value="mobile" onclick="nextQuestionTop(4)"> Mobile data (mostly reliable)</label>
+                                <label><input type="radio" name="topQ4" value="unstable" onclick="nextQuestionTop(4)"> Often unstable/slow</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question hidden" id="topQ5" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #8b5cf6; border-radius: 8px;">
+                            <p class="question-number">Question 5 of 5</p>
+                            <p><strong>Do you speak any other languages fluently besides English?</strong></p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="topQ5" value="yes" onclick="showResultsTop()"> Yes (French, Yoruba, Hausa, Igbo, Arabic, etc.)</label>
+                                <label><input type="radio" name="topQ5" value="no" onclick="showResultsTop()"> English only</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result hidden" id="quizResultTop" style="background: white; border: 3px solid #28a745; padding: 25px; border-radius: 12px; margin-top: 20px;">
+                            <h4>🎉 Your Personalized Results:</h4>
+                            <p><strong>Your Earning Tier:</strong> <span id="earningTierTop" style="color: #28a745; font-size: 1.3rem;"></span></p>
+                            <p><strong>Estimated Monthly Earnings:</strong> <span id="monthlyEarningsTop" style="font-size: 1.5rem; color: #007bff;"></span></p>
+                            <h4>📌 Best Platforms For You:</h4>
+                            <div id="recommendedPlatformsTop" class="recommended-platforms"></div>
+                            <p style="margin-top: 15px;"><strong>📖 Keep reading below for step-by-step guides on how to apply and maximize your earnings!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ (High Engagement) -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <div class="urgency-banner">
                     🚀 <strong>High Demand:</strong> AI companies are actively hiring data trainers worldwide. Start earning within 48 hours of applying!
                 </div>
@@ -379,7 +461,6 @@
                     <nav class="table-of-contents">
                         <h3>📑 What You'll Learn</h3>
                         <ol>
-                            <li><a href="#eligibility-quiz">🎯 Find Your Perfect AI Job (60-Second Quiz)</a></li>
                             <li><a href="#what-is">What Are AI Training Jobs?</a></li>
                             <li><a href="#earnings">How Much Can You Actually Earn?</a></li>
                             <li><a href="#platforms">Best Platforms to Apply (2026)</a></li>

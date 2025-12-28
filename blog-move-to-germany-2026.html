@@ -305,9 +305,70 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #ffc107, #ff9800); padding: 20px; margin-bottom: 20px; text-align: center;">
+                    <h2 style="color: #000; margin: 0 0 10px 0;">🎯 Can You Move to Germany? Find Out in 30 Seconds!</h2>
+                    <p style="color: #333; margin: 0;">Answer 4 quick questions to discover your best visa pathway and eligibility.</p>
+                </div>
+
+                <!-- QUICK ELIGIBILITY QUIZ - MOVED TO TOP -->
+                <section id="quick-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container">
+                        <div class="quiz-question">
+                            <p><strong>Question 1:</strong> Do you have a university degree?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q1" value="yes" onclick="updateQuiz()"> Yes, Bachelor's or higher</label>
+                                <label><input type="radio" name="q1" value="vocational" onclick="updateQuiz()"> No, but I have vocational training</label>
+                                <label><input type="radio" name="q1" value="no" onclick="updateQuiz()"> No formal qualification</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question">
+                            <p><strong>Question 2:</strong> How many years of work experience do you have?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q2" value="5plus" onclick="updateQuiz()"> 5+ years</label>
+                                <label><input type="radio" name="q2" value="2-4" onclick="updateQuiz()"> 2-4 years</label>
+                                <label><input type="radio" name="q2" value="less" onclick="updateQuiz()"> Less than 2 years</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question">
+                            <p><strong>Question 3:</strong> Do you already have a job offer from Germany?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q3" value="yes" onclick="updateQuiz()"> Yes</label>
+                                <label><input type="radio" name="q3" value="no" onclick="updateQuiz()"> No</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question">
+                            <p><strong>Question 4:</strong> Your age?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="q4" value="under35" onclick="updateQuiz()"> Under 35</label>
+                                <label><input type="radio" name="q4" value="35-40" onclick="updateQuiz()"> 35-40</label>
+                                <label><input type="radio" name="q4" value="over40" onclick="updateQuiz()"> Over 40</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result" id="quizResult">
+                            <h4>📊 Your Best Options:</h4>
+                            <p id="quizResultText"></p>
+                            <p><strong>Keep reading below for detailed requirements and step-by-step guides!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ (High Engagement) -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <!-- Urgency Banner -->
                 <div class="urgency-banner">
-                    ⚡ <strong>2026 Guide:</strong> Germany's Opportunity Card is NOW LIVE! First 400,000 spots filling fast. Keep reading to check if you qualify.
+                    ⚡ <strong>2026 Guide:</strong> Germany's Opportunity Card is NOW LIVE! First 400,000 spots filling fast. Keep reading for full details.
                 </div>
 
                 <div class="info-box warning">
@@ -318,7 +379,6 @@
                     <nav class="table-of-contents">
                         <h3>📑 What You'll Learn in This Guide</h3>
                         <ol>
-                            <li><a href="#quick-quiz">Quick Eligibility Quiz (30 seconds)</a></li>
                             <li><a href="#why-germany">Why Germans Are Desperate for Workers</a></li>
                             <li><a href="#salary-comparison">German Salaries vs Nigeria/Ghana/Kenya</a></li>
                             <li><a href="#new-laws">NEW: Immigration Law Changes (What's New)</a></li>
@@ -334,64 +394,6 @@
                             <li><a href="#faqs">Frequently Asked Questions</a></li>
                         </ol>
                     </nav>
-
-                    <!-- QUICK ELIGIBILITY QUIZ -->
-                    <section id="quick-quiz">
-                        <h2>🎯 Quick Eligibility Quiz (30 Seconds)</h2>
-                        <p>Before reading the full guide, take this quick quiz to see which German visa you might qualify for:</p>
-                        
-                        <div class="quiz-container">
-                            <div class="quiz-question">
-                                <p><strong>Question 1:</strong> Do you have a university degree?</p>
-                                <div class="quiz-options">
-                                    <label><input type="radio" name="q1" value="yes" onclick="updateQuiz()"> Yes, Bachelor's or higher</label>
-                                    <label><input type="radio" name="q1" value="vocational" onclick="updateQuiz()"> No, but I have vocational training</label>
-                                    <label><input type="radio" name="q1" value="no" onclick="updateQuiz()"> No formal qualification</label>
-                                </div>
-                            </div>
-                            
-                            <div class="quiz-question">
-                                <p><strong>Question 2:</strong> How many years of work experience do you have?</p>
-                                <div class="quiz-options">
-                                    <label><input type="radio" name="q2" value="5plus" onclick="updateQuiz()"> 5+ years</label>
-                                    <label><input type="radio" name="q2" value="2-4" onclick="updateQuiz()"> 2-4 years</label>
-                                    <label><input type="radio" name="q2" value="less" onclick="updateQuiz()"> Less than 2 years</label>
-                                </div>
-                            </div>
-                            
-                            <div class="quiz-question">
-                                <p><strong>Question 3:</strong> Do you already have a job offer from Germany?</p>
-                                <div class="quiz-options">
-                                    <label><input type="radio" name="q3" value="yes" onclick="updateQuiz()"> Yes</label>
-                                    <label><input type="radio" name="q3" value="no" onclick="updateQuiz()"> No</label>
-                                </div>
-                            </div>
-                            
-                            <div class="quiz-question">
-                                <p><strong>Question 4:</strong> Your age?</p>
-                                <div class="quiz-options">
-                                    <label><input type="radio" name="q4" value="under35" onclick="updateQuiz()"> Under 35</label>
-                                    <label><input type="radio" name="q4" value="35-40" onclick="updateQuiz()"> 35-40</label>
-                                    <label><input type="radio" name="q4" value="over40" onclick="updateQuiz()"> Over 40</label>
-                                </div>
-                            </div>
-                            
-                            <div class="quiz-result" id="quizResult">
-                                <h4>📊 Your Best Options:</h4>
-                                <p id="quizResultText"></p>
-                                <p><strong>Keep reading below for detailed requirements and step-by-step guides!</strong></p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- AD PLACEMENT 1 - After engagement (quiz) -->
-                    <div class="ad-container in-article">
-                        <span class="ad-label">Advertisement</span>
-                        <div class="ad-unit">
-                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                        </div>
-                    </div>
 
                     <section id="why-germany">
                         <h2>🇩🇪 Why Germany is DESPERATE for Foreign Workers</h2>

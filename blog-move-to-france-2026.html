@@ -80,6 +80,105 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #002395, #ED2939); padding: 25px; margin-bottom: 20px; text-align: center; color: white; border-radius: 12px;">
+                    <h2 style="color: #fff; margin: 0 0 10px 0;">🇫🇷 Which French Visa is Right For You? Find Out Now!</h2>
+                    <p style="color: #fff; margin: 0; opacity: 0.95;">Answer 4 quick questions to discover your best pathway to France.</p>
+                </div>
+
+                <!-- FRANCE VISA QUIZ -->
+                <section id="france-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 3px solid #002395; padding: 25px; border-radius: 12px;">
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #002395; border-radius: 8px;">
+                            <p><strong>Question 1:</strong> What's your situation?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="frQ1" value="entrepreneur" onclick="updateFranceQuiz()"> I want to start a business</label>
+                                <label><input type="radio" name="frQ1" value="employee" onclick="updateFranceQuiz()"> I want to work for a company</label>
+                                <label><input type="radio" name="frQ1" value="student" onclick="updateFranceQuiz()"> I want to study</label>
+                                <label><input type="radio" name="frQ1" value="investor" onclick="updateFranceQuiz()"> I have significant savings/investments</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #002395; border-radius: 8px;">
+                            <p><strong>Question 2:</strong> Highest education?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="frQ2" value="masters" onclick="updateFranceQuiz()"> Master's degree or higher</label>
+                                <label><input type="radio" name="frQ2" value="degree" onclick="updateFranceQuiz()"> Bachelor's degree</label>
+                                <label><input type="radio" name="frQ2" value="other" onclick="updateFranceQuiz()"> Other qualification</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #002395; border-radius: 8px;">
+                            <p><strong>Question 3:</strong> Do you speak French?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="frQ3" value="fluent" onclick="updateFranceQuiz()"> Yes, fluently</label>
+                                <label><input type="radio" name="frQ3" value="basic" onclick="updateFranceQuiz()"> Basic/Learning</label>
+                                <label><input type="radio" name="frQ3" value="no" onclick="updateFranceQuiz()"> No French knowledge</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #002395; border-radius: 8px;">
+                            <p><strong>Question 4:</strong> Do you work in tech/startup industry?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="frQ4" value="yes" onclick="updateFranceQuiz()"> Yes</label>
+                                <label><input type="radio" name="frQ4" value="no" onclick="updateFranceQuiz()"> No</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result" id="franceQuizResult" style="display: none; background: white; border: 3px solid #002395; padding: 25px; border-radius: 12px; margin-top: 20px;">
+                            <h4>🇫🇷 Your Best France Pathway:</h4>
+                            <p id="francePathway" style="font-size: 1.3rem; font-weight: 700; color: #002395;"></p>
+                            <p id="franceExplanation"></p>
+                            <p style="margin-top: 15px;"><strong>📖 Keep reading for detailed requirements and application steps!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                function updateFranceQuiz() {
+                    const q1 = document.querySelector('input[name="frQ1"]:checked');
+                    const q2 = document.querySelector('input[name="frQ2"]:checked');
+                    const q3 = document.querySelector('input[name="frQ3"]:checked');
+                    const q4 = document.querySelector('input[name="frQ4"]:checked');
+                    
+                    if (q1 && q2 && q3 && q4) {
+                        document.getElementById('franceQuizResult').style.display = 'block';
+                        
+                        let pathway = '';
+                        let explanation = '';
+                        
+                        if (q4.value === 'yes' || q1.value === 'entrepreneur') {
+                            pathway = '⭐ French Tech Visa (Talent Passport)';
+                            explanation = 'Perfect for tech workers and entrepreneurs! Fast-track processing in just 15 days.';
+                        } else if (q2.value === 'masters' && q1.value === 'employee') {
+                            pathway = '🏆 Talent Passport - Highly Qualified';
+                            explanation = 'Your Master\'s degree qualifies you for this 4-year renewable visa!';
+                        } else if (q1.value === 'student') {
+                            pathway = '📚 Student Visa → Job Search Visa';
+                            explanation = 'Study in France (nearly free tuition!), then get 12 months to find work.';
+                        } else if (q1.value === 'employee') {
+                            pathway = '💼 Employee Work Visa';
+                            explanation = 'You\'ll need a French employer to sponsor you through DIRECCTE.';
+                        } else {
+                            pathway = '🌟 EU Blue Card France';
+                            explanation = 'For highly-skilled workers with job offers. Salary must be 1.5x average French salary.';
+                        }
+                        
+                        document.getElementById('francePathway').textContent = pathway;
+                        document.getElementById('franceExplanation').textContent = explanation;
+                    }
+                }
+                </script>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <div class="info-box warning">
                     <p><strong>⚠️ Disclaimer:</strong> This is educational information only. Always verify on <a href="https://france-visas.gouv.fr/en/" target="_blank" rel="noopener">official France-Visas website</a>.</p>
                 </div>
@@ -88,6 +187,7 @@
                     <nav class="table-of-contents">
                         <h3>📑 Table of Contents</h3>
                         <ol>
+                            <li><a href="#france-quiz">Find Your France Pathway (Quiz)</a></li>
                             <li><a href="#why-france">Why Move to France?</a></li>
                             <li><a href="#pathways">Main Immigration Pathways</a></li>
                             <li><a href="#talent-passport">Talent Passport (Passeport Talent)</a></li>

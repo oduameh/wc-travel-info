@@ -80,6 +80,103 @@
             </header>
 
             <div class="container">
+                <!-- QUIZ FIRST - Immediate Engagement -->
+                <div class="quiz-intro-box" style="background: linear-gradient(135deg, #169B62, #FF883E); padding: 25px; margin-bottom: 20px; text-align: center; color: white; border-radius: 12px;">
+                    <h2 style="color: #fff; margin: 0 0 10px 0;">🇮🇪 Can You Qualify for Ireland? Find Out in 45 Seconds!</h2>
+                    <p style="color: #fff; margin: 0; opacity: 0.95;">Answer 4 quick questions to discover your best Irish visa pathway.</p>
+                </div>
+
+                <!-- IRELAND VISA QUIZ -->
+                <section id="ireland-quiz" style="margin-bottom: 30px;">
+                    <div class="quiz-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 3px solid #169B62; padding: 25px; border-radius: 12px;">
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #169B62; border-radius: 8px;">
+                            <p><strong>Question 1:</strong> What's your profession?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="ieQ1" value="tech" onclick="updateIrelandQuiz()"> IT/Software/Tech</label>
+                                <label><input type="radio" name="ieQ1" value="health" onclick="updateIrelandQuiz()"> Healthcare (Nurse, Doctor)</label>
+                                <label><input type="radio" name="ieQ1" value="finance" onclick="updateIrelandQuiz()"> Finance/Accounting</label>
+                                <label><input type="radio" name="ieQ1" value="other" onclick="updateIrelandQuiz()"> Other profession</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #169B62; border-radius: 8px;">
+                            <p><strong>Question 2:</strong> Do you have a job offer from Ireland?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="ieQ2" value="yes" onclick="updateIrelandQuiz()"> Yes, salary €38,000+</label>
+                                <label><input type="radio" name="ieQ2" value="low" onclick="updateIrelandQuiz()"> Yes, but salary below €38,000</label>
+                                <label><input type="radio" name="ieQ2" value="no" onclick="updateIrelandQuiz()"> No job offer yet</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #169B62; border-radius: 8px;">
+                            <p><strong>Question 3:</strong> Highest qualification?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="ieQ3" value="masters" onclick="updateIrelandQuiz()"> Master's/PhD</label>
+                                <label><input type="radio" name="ieQ3" value="degree" onclick="updateIrelandQuiz()"> Bachelor's degree</label>
+                                <label><input type="radio" name="ieQ3" value="other" onclick="updateIrelandQuiz()"> Diploma/Certificate</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question" style="background: white; padding: 20px; margin-bottom: 15px; border-left: 5px solid #169B62; border-radius: 8px;">
+                            <p><strong>Question 4:</strong> What's your budget for moving?</p>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="ieQ4" value="high" onclick="updateIrelandQuiz()"> €20,000+ (can afford study)</label>
+                                <label><input type="radio" name="ieQ4" value="medium" onclick="updateIrelandQuiz()"> €5,000-20,000</label>
+                                <label><input type="radio" name="ieQ4" value="low" onclick="updateIrelandQuiz()"> Under €5,000</label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-result" id="irelandQuizResult" style="display: none; background: white; border: 3px solid #169B62; padding: 25px; border-radius: 12px; margin-top: 20px;">
+                            <h4>🇮🇪 Your Best Ireland Pathway:</h4>
+                            <p id="irelandPathway" style="font-size: 1.3rem; font-weight: 700; color: #169B62;"></p>
+                            <p id="irelandExplanation"></p>
+                            <p style="margin-top: 15px;"><strong>📖 Keep reading for detailed requirements and application steps!</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                function updateIrelandQuiz() {
+                    const q1 = document.querySelector('input[name="ieQ1"]:checked');
+                    const q2 = document.querySelector('input[name="ieQ2"]:checked');
+                    const q3 = document.querySelector('input[name="ieQ3"]:checked');
+                    const q4 = document.querySelector('input[name="ieQ4"]:checked');
+                    
+                    if (q1 && q2 && q3 && q4) {
+                        document.getElementById('irelandQuizResult').style.display = 'block';
+                        
+                        let pathway = '';
+                        let explanation = '';
+                        
+                        if ((q1.value === 'tech' || q1.value === 'health') && q2.value === 'yes') {
+                            pathway = '⭐ Critical Skills Employment Permit';
+                            explanation = 'Perfect! This is the fast-track visa with Stamp 4 after just 2 years!';
+                        } else if (q2.value === 'yes' || q2.value === 'low') {
+                            pathway = '📋 General Employment Permit';
+                            explanation = 'You can work in Ireland with your job offer. Path to Stamp 4 after 5 years.';
+                        } else if (q4.value === 'high') {
+                            pathway = '📚 Study in Ireland → Work → Stamp 4';
+                            explanation = 'Study in Ireland, get graduate visa to find work, then transition to work permit.';
+                        } else {
+                            pathway = '💼 Find a Job First';
+                            explanation = 'Ireland requires a job offer for work permits. Start applying to Irish employers!';
+                        }
+                        
+                        document.getElementById('irelandPathway').textContent = pathway;
+                        document.getElementById('irelandExplanation').textContent = explanation;
+                    }
+                }
+                </script>
+
+                <!-- AD PLACEMENT - RIGHT AFTER QUIZ -->
+                <div class="ad-container in-article">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-unit">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                    </div>
+                </div>
+
                 <div class="info-box warning">
                     <p><strong>⚠️ Disclaimer:</strong> This is educational information only. Always verify on <a href="https://www.irishimmigration.ie/" target="_blank" rel="noopener">official Irish Immigration website</a>.</p>
                 </div>
@@ -88,6 +185,7 @@
                     <nav class="table-of-contents">
                         <h3>📑 Table of Contents</h3>
                         <ol>
+                            <li><a href="#ireland-quiz">Find Your Ireland Pathway (Quiz)</a></li>
                             <li><a href="#why-ireland">Why Move to Ireland?</a></li>
                             <li><a href="#pathways">Main Work Permit Types</a></li>
                             <li><a href="#critical-skills">Critical Skills Employment Permit</a></li>
