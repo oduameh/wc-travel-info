@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immigration Blog | Canada, Europe & Remote Jobs Guides 2026</title>
-    <meta name="description" content="Free immigration guides and articles about moving to Canada, Germany, Ireland, Dubai. Plus remote work opportunities like AI training jobs. Updated for 2026.">
-    <meta name="keywords" content="Canada immigration blog, move to Canada 2026, Express Entry guide, move to Germany, AI training jobs, remote work Africa, japa guide">
-    <meta name="robots" content="index, follow">
+    <title>Immigration Blog | Visa Guides & Remote Work Tips</title>
+    <meta name="description" content="Expert guides on immigrating to Canada, Germany, and more. Plus remote work opportunities and visa tips for 2026.">
+    <meta name="keywords" content="immigration blog, visa guides, Canada immigration, Germany visa, work abroad, remote jobs">
     <link rel="canonical" href="https://canadamexicovisa.info/blog.html">
     
-    <meta property="og:title" content="Immigration Blog | Free Canada & Europe Guides 2026">
-    <meta property="og:description" content="Expert guides on moving to Canada, Germany, Ireland. Plus remote work opportunities. Free educational resources.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://canadamexicovisa.info/blog.html">
-    
-    <meta name="theme-color" content="#26374A">
+    <meta name="theme-color" content="#1a365d">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="manifest" href="manifest.json">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4C1Z3P77F"></script>
@@ -32,7 +24,7 @@
         gtag('config', 'G-J4C1Z3P77F');
     </script>
     
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -42,305 +34,284 @@
     fbq('init', '1980793392481222');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1980793392481222&ev=PageView&noscript=1"/></noscript>
-    <!-- End Meta Pixel Code -->
     
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212022468120924" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-3212022468120924">
-    <script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-3212022468120924", enable_page_level_ads: true});</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #ed8936;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #f7fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+        
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo { font-size: 1.3rem; font-weight: 700; color: white; text-decoration: none; }
+        .nav a { color: rgba(255,255,255,0.9); text-decoration: none; margin-left: 25px; font-size: 0.95rem; }
+        .nav a:hover { color: var(--accent); }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; }
+        
+        main { padding: 40px 0; }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .article-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+        
+        .card-content { padding: 25px; }
+        
+        .card-category {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        
+        .card-category.canada { background: #fee2e2; color: #dc2626; }
+        .card-category.germany { background: #fef3c7; color: #d97706; }
+        .card-category.remote { background: #ede9fe; color: #7c3aed; }
+        .card-category.other { background: #e0f2fe; color: #0284c7; }
+        
+        .article-card h2 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .article-card h2 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .article-card h2 a:hover { color: var(--accent); }
+        
+        .card-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .ad-container {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .ad-label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .footer a { color: rgba(255,255,255,0.8); margin: 0 12px; text-decoration: none; }
+        .footer a:hover { color: white; }
+        .footer-note { font-size: 0.8rem; margin-top: 20px; opacity: 0.6; }
+        
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav { display: none; }
+            .articles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <header class="site-header">
-        <div class="header-top">
-            <div class="container">
-                <span>Independent Educational Resource • Not a Government Website</span>
-                <div>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
-                </div>
-            </div>
-        </div>
+    <header class="header">
         <div class="container">
-            <a href="/" class="logo">
-                <span class="logo-icon">🍁</span>
-                <div>
-                    <span class="logo-text">Canada Mexico Visa Info</span>
-                    <span class="logo-subtitle">Free Immigration Information Guide</span>
-                </div>
-            </a>
-            <nav class="nav-links">
+            <a href="index.html" class="logo">🌍 VisaGuide</a>
+            <nav class="nav">
                 <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
                 <a href="express-entry.html">Express Entry</a>
-                <a href="study-permit.html">Study Permits</a>
-                <a href="blog.html" class="active">Blog</a>
             </nav>
         </div>
     </header>
 
-    <main id="main-content" class="main-content">
-        <section class="hero-section">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a> › <span>Immigration Blog</span>
-                </div>
-                <span class="section-label">FREE GUIDES & ARTICLES</span>
-                <h1>Immigration & Opportunity Blog</h1>
-                <p class="hero-subtitle">Expert guides on moving abroad, work permits, Express Entry, and remote work opportunities. Updated for 2026.</p>
-            </div>
-        </section>
-
-        <!-- Featured Article - AI Jobs -->
-        <section class="content-section" style="background: linear-gradient(135deg, #8b5cf6, #06b6d4); color: white;">
-            <div class="container">
-                <h2 style="color: white;">🔥 HOT: Earn Money From Home</h2>
-                <div class="blog-grid">
-                    <article class="blog-card featured" style="background: rgba(255,255,255,0.95);">
-                        <div class="blog-card-image" style="background: linear-gradient(135deg, #8b5cf6, #06b6d4);">
-                            <span class="blog-category" style="background: #10b981;">NEW - TRENDING</span>
-                            <div class="blog-icon">🤖</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-ai-training-jobs-2026.html">AI Training Jobs 2026: Get Paid to Train AI Models From Home</a></h3>
-                            <p>Tech companies are paying people worldwide to train AI. No degree required, work from anywhere, earn in USD. Complete guide with platforms, earnings, and how to start today!</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 18 min read</span>
-                                <span style="color: #10b981; font-weight: bold;">💰 Earn $150-$500/month</span>
-                            </div>
-                            <a href="blog-ai-training-jobs-2026.html" class="btn btn-primary">Start Earning Today →</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ad Placement -->
+    <section class="hero">
         <div class="container">
-            <div class="ad-container">
-                <span class="ad-label">Advertisement</span>
-                <div class="ad-unit">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
-            </div>
+            <h1>Immigration & Work Abroad Blog</h1>
+            <p>Expert guides for moving abroad, visa applications, and remote work in 2026</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- AD -->
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- Immigration Articles -->
-        <section class="content-section">
-            <div class="container">
-                <h2>🌍 Immigration Guides</h2>
-                <p>In-depth guides to help you relocate abroad. All information is educational - verify with official sources.</p>
-                
-                <div class="blog-grid">
-                    <article class="blog-card featured">
-                        <div class="blog-card-image">
-                            <span class="blog-category">FEATURED GUIDE</span>
-                            <div class="blog-icon">🇨🇦</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-move-to-canada-2026.html">How to Move to Canada in 2026: Complete Step-by-Step Guide</a></h3>
-                            <p>Everything you need to know about immigrating to Canada. From eligibility to landing - the complete roadmap with quiz, CRS calculator, and action plan.</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 25 min read</span>
-                            </div>
-                            <a href="blog-move-to-canada-2026.html" class="btn btn-primary">Read Full Guide →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card featured">
-                        <div class="blog-card-image" style="background: linear-gradient(135deg, #ffc107, #ff9800);">
-                            <span class="blog-category" style="background: #dc3545;">UPDATED</span>
-                            <div class="blog-icon">🇩🇪</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-move-to-germany-2026.html">How to Move to Germany in 2026: EU Blue Card & Opportunity Card</a></h3>
-                            <p>NEW: Interactive quiz, points calculator, and complete breakdown of Germany's new immigration laws. Opportunity Card now LIVE!</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 22 min read</span>
-                            </div>
-                            <a href="blog-move-to-germany-2026.html" class="btn btn-primary">Read Full Guide →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <span class="blog-category">EXPRESS ENTRY</span>
-                            <div class="blog-icon">📊</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-crs-score-2026.html">CRS Score Calculator 2026: How to Get 470+ Points for Express Entry</a></h3>
-                            <p>Learn exactly how CRS points are calculated and discover proven strategies to boost your score for the latest Express Entry draws.</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 12 min read</span>
-                            </div>
-                            <a href="blog-crs-score-2026.html" class="btn btn-secondary">Read Article →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <span class="blog-category">WORK PERMITS</span>
-                            <div class="blog-icon">💼</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-work-canada-no-job-offer-2026.html">Work in Canada Without a Job Offer: 5 Immigration Pathways in 2026</a></h3>
-                            <p>You don't always need a job offer to work in Canada. Discover 5 legitimate pathways that don't require employer sponsorship.</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 10 min read</span>
-                            </div>
-                            <a href="blog-work-canada-no-job-offer-2026.html" class="btn btn-secondary">Read Article →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <span class="blog-category">IRELAND</span>
-                            <div class="blog-icon">🇮🇪</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-move-to-ireland-2026.html">How to Move to Ireland in 2026: Critical Skills & Work Permit Guide</a></h3>
-                            <p>English-speaking EU country with booming tech sector. Critical Skills visa, Stamp 4, and path to citizenship explained.</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 12 min read</span>
-                            </div>
-                            <a href="blog-move-to-ireland-2026.html" class="btn btn-secondary">Read Article →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <span class="blog-category">FRANCE</span>
-                            <div class="blog-icon">🇫🇷</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-move-to-france-2026.html">How to Move to France in 2026: Talent Passport & Work Visa Guide</a></h3>
-                            <p>Talent Passport, French Tech Visa, and EU Blue Card. Your complete guide to living in France.</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 12 min read</span>
-                            </div>
-                            <a href="blog-move-to-france-2026.html" class="btn btn-secondary">Read Article →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <span class="blog-category">DUBAI/UAE</span>
-                            <div class="blog-icon">🇦🇪</div>
-                        </div>
-                        <div class="blog-card-content">
-                            <h3><a href="blog-move-to-dubai-2026.html">How to Move to Dubai/UAE in 2026: Golden Visa & Tax-Free Living</a></h3>
-                            <p>Zero income tax, Golden Visa, freelancer permits. Complete guide to relocating to the Emirates.</p>
-                            <div class="blog-meta">
-                                <span>📅 January 2026</span>
-                                <span>⏱️ 12 min read</span>
-                            </div>
-                            <a href="blog-move-to-dubai-2026.html" class="btn btn-secondary">Read Article →</a>
-                        </div>
-                    </article>
+        <div class="articles-grid">
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category canada">Canada</span>
+                    <h2><a href="blog-move-to-canada-2026.html">How to Move to Canada in 2026: Complete Immigration Guide</a></h2>
+                    <p class="card-excerpt">Express Entry, CRS scores, Provincial Nominee Programs, and step-by-step process for Canadian permanent residence.</p>
+                    <p class="card-meta">18 min read • Updated Jan 2026</p>
                 </div>
-            </div>
-        </section>
+            </article>
 
-        <!-- Ad Placement -->
-        <div class="container">
-            <div class="ad-container">
-                <span class="ad-label">Advertisement</span>
-                <div class="ad-unit">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category germany">Germany</span>
+                    <h2><a href="blog-move-to-germany-2026.html">How to Move to Germany in 2026: Visa & Work Permit Guide</a></h2>
+                    <p class="card-excerpt">EU Blue Card, Opportunity Card, skilled worker visa requirements, and costs breakdown.</p>
+                    <p class="card-meta">15 min read • Updated Jan 2026</p>
                 </div>
-            </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category remote">Remote Work</span>
+                    <h2><a href="blog-ai-training-jobs-2026.html">AI Training Jobs: Get Paid to Work from Home in 2026</a></h2>
+                    <p class="card-excerpt">Earn $500-2000/month training AI models. Best platforms, requirements, and tips for maximizing earnings.</p>
+                    <p class="card-meta">12 min read • Updated Jan 2026</p>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category canada">Canada</span>
+                    <h2><a href="blog-crs-score-2026.html">How to Improve Your CRS Score for Express Entry</a></h2>
+                    <p class="card-excerpt">Practical tips to boost your CRS score and increase your chances of getting an ITA.</p>
+                    <p class="card-meta">10 min read • Updated Jan 2026</p>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category canada">Canada</span>
+                    <h2><a href="blog-work-canada-no-job-offer-2026.html">Work in Canada Without a Job Offer</a></h2>
+                    <p class="card-excerpt">Options for immigrating to Canada without an employer sponsor or LMIA.</p>
+                    <p class="card-meta">8 min read • Updated Jan 2026</p>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category other">Ireland</span>
+                    <h2><a href="blog-move-to-ireland-2026.html">How to Move to Ireland in 2026</a></h2>
+                    <p class="card-excerpt">Critical Skills visa, work permits, and pathways to residency in Ireland.</p>
+                    <p class="card-meta">10 min read • Updated Jan 2026</p>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category other">France</span>
+                    <h2><a href="blog-move-to-france-2026.html">How to Move to France in 2026</a></h2>
+                    <p class="card-excerpt">Talent Passport, French Tech Visa, and skilled worker options for France.</p>
+                    <p class="card-meta">10 min read • Updated Jan 2026</p>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-content">
+                    <span class="card-category other">Dubai</span>
+                    <h2><a href="blog-move-to-dubai-2026.html">How to Move to Dubai in 2026</a></h2>
+                    <p class="card-excerpt">Golden Visa, employment visas, and living tax-free in the UAE.</p>
+                    <p class="card-meta">10 min read • Updated Jan 2026</p>
+                </div>
+            </article>
         </div>
 
-        <!-- More Resources -->
-        <section class="content-section alt-bg">
-            <div class="container">
-                <h2>📖 More Resources</h2>
-                <div class="resource-grid">
-                    <a href="express-entry.html" class="resource-card">
-                        <span class="resource-icon">🎯</span>
-                        <h4>Express Entry Guide</h4>
-                        <p>Complete overview of Canada's Express Entry system</p>
-                    </a>
-                    <a href="study-permit.html" class="resource-card">
-                        <span class="resource-icon">🎓</span>
-                        <h4>Study Permit Guide</h4>
-                        <p>How to study in Canada as an international student</p>
-                    </a>
-                    <a href="ielts-guide.html" class="resource-card">
-                        <span class="resource-icon">📝</span>
-                        <h4>IELTS Preparation</h4>
-                        <p>Tips to maximize your language test score</p>
-                    </a>
-                    <a href="blog-ai-training-jobs-2026.html" class="resource-card" style="border-color: #8b5cf6;">
-                        <span class="resource-icon">🤖</span>
-                        <h4>AI Training Jobs</h4>
-                        <p>Earn USD from home - no degree required</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Disclaimer -->
-        <section class="content-section">
-            <div class="container">
-                <div class="info-box warning">
-                    <h4>⚠️ Educational Information Only</h4>
-                    <p>All articles on this blog are for <strong>educational purposes only</strong>. This is not legal or immigration advice. Immigration requirements change frequently. Always verify information on <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank" rel="noopener">official government websites</a> before making decisions.</p>
-                </div>
-            </div>
-        </section>
+        <!-- AD -->
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <span class="logo-icon">🍁</span>
-                    <span class="logo-text">Canada Mexico Visa Info</span>
-                    <p>Free educational immigration information. Not affiliated with any government.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>Guides</h4>
-                        <a href="express-entry.html">Express Entry</a>
-                        <a href="study-permit.html">Study Permits</a>
-                        <a href="ielts-guide.html">IELTS Guide</a>
-                        <a href="blog.html">Blog</a>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <a href="about.html">About Us</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="privacy.html">Privacy Policy</a>
-                        <a href="terms.html">Terms of Use</a>
-                        <a href="ads.txt">Ads.txt</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Canada Mexico Visa Info. All rights reserved.</p>
-                <p class="footer-disclaimer">Independent educational website. NOT affiliated with any government.</p>
-            </div>
+    <footer class="footer">
+        <div>
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
         </div>
+        <p class="footer-note">© 2026 VisaGuide. Educational information only. Not affiliated with any government.</p>
     </footer>
-
-    <script src="script.js"></script>
-    <!-- Sticky Bottom Ad -->
-    <div class="sticky-bottom-ad" id="stickyAd">
-        <button class="close-ad" onclick="document.getElementById('stickyAd').style.display='none';document.body.classList.remove('has-sticky-ad');" aria-label="Close">×</button>
-        <span class="ad-label">Advertisement</span>
-        <ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-    <script>document.body.classList.add('has-sticky-ad');</script>
 </body>
 </html>
