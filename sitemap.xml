@@ -12,6 +12,8 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
+    
+    <!-- High Priority: Main Immigration Guides -->
     <url>
         <loc>https://canadamexicovisa.info/blog-move-to-canada-2026.html</loc>
         <lastmod>2026-01-15</lastmod>
@@ -28,34 +30,44 @@
         <loc>https://canadamexicovisa.info/blog-ai-training-jobs-2026.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- High CPC: Finance & Insurance -->
+    <url>
+        <loc>https://canadamexicovisa.info/blog-travel-insurance-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://canadamexicovisa.info/blog-banks-dollar-accounts-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://canadamexicovisa.info/blog-immigration-lawyer-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://canadamexicovisa.info/blog-ielts-preparation-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Canada Guides -->
     <url>
         <loc>https://canadamexicovisa.info/blog-crs-score-2026.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://canadamexicovisa.info/blog-work-canada-no-job-offer-2026.html</loc>
-        <lastmod>2026-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://canadamexicovisa.info/blog-move-to-ireland-2026.html</loc>
-        <lastmod>2026-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://canadamexicovisa.info/blog-move-to-france-2026.html</loc>
-        <lastmod>2026-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://canadamexicovisa.info/blog-move-to-dubai-2026.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -64,42 +76,64 @@
         <loc>https://canadamexicovisa.info/express-entry.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
+    
+    <!-- Other Destinations -->
+    <url>
+        <loc>https://canadamexicovisa.info/blog-move-to-ireland-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://canadamexicovisa.info/blog-move-to-france-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://canadamexicovisa.info/blog-move-to-dubai-2026.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Utility Pages -->
     <url>
         <loc>https://canadamexicovisa.info/study-permit.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://canadamexicovisa.info/ielts-guide.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.6</priority>
     </url>
     <url>
         <loc>https://canadamexicovisa.info/about.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.4</priority>
     </url>
     <url>
         <loc>https://canadamexicovisa.info/contact.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.4</priority>
     </url>
     <url>
         <loc>https://canadamexicovisa.info/privacy.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
+        <priority>0.2</priority>
     </url>
     <url>
         <loc>https://canadamexicovisa.info/terms.html</loc>
         <lastmod>2026-01-15</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
+        <priority>0.2</priority>
     </url>
 </urlset>
