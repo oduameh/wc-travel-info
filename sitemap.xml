@@ -99,6 +99,14 @@
         <priority>0.6</priority>
     </url>
     
+    <!-- Lead Capture -->
+    <url>
+        <loc>https://canadamexicovisa.info/free-guide.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
     <!-- Utility Pages -->
     <url>
         <loc>https://canadamexicovisa.info/study-permit.html</loc>
