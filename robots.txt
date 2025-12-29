@@ -1,19 +1,9 @@
-# Robots.txt for WC Travel Info
-# FIFA World Cup 2026 Educational Content
-
+# robots.txt for canadamexicovisa.info
 User-agent: *
 Allow: /
 
-# Sitemap location (update domain when deployed)
+# Sitemap location
 Sitemap: https://canadamexicovisa.info/sitemap.xml
 
-# Allow all search engine crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# Disallow admin or private areas (none currently)
+# Disallow admin/private areas (none currently)
 # Disallow: /admin/
-
