@@ -51,6 +51,27 @@
         </div>
     </header>
 
+    <!-- Progress Milestone Bar -->
+    <div class="progress-milestone" id="progressMilestone">
+        <span class="milestone-text">📖 Reading...</span>
+        <div class="milestone-bar"><div class="milestone-fill" id="milestoneFill"></div></div>
+        <span class="milestone-text" id="milestonePercent">0%</span>
+    </div>
+
+    <!-- Scroll Reward -->
+    <div class="scroll-reward" id="scrollReward">🍁 Great! You're halfway to understanding Express Entry!</div>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-modal" id="exitModal">
+        <div class="exit-modal-content">
+            <button class="close-btn" onclick="closeExitModal()">&times;</button>
+            <h3>Wait! 🍁</h3>
+            <p>Get our <strong>free Canada immigration checklist</strong> - every document, cost, and deadline in one place.</p>
+            <a href="free-guide.html" class="btn">Get Free Checklist →</a>
+            <button onclick="closeExitModal()" style="background:none;border:none;color:#64748b;cursor:pointer;margin-top:10px">No thanks</button>
+        </div>
+    </div>
+
     <main class="article-container">
         <div class="article-header">
             <span class="article-category">🍁 Canada Immigration</span>
@@ -63,6 +84,35 @@
         </div>
 
         <div class="article-content">
+            <!-- HOOK BANNER -->
+            <div class="hook-banner">
+                <div class="hook-icon">🚀</div>
+                <div class="hook-text">
+                    Over 15,000 Nigerians moved to Canada via Express Entry in 2024
+                    <span>Scroll to see the exact steps they followed (with costs)</span>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <div class="stat-value">6mo</div>
+                    <div class="stat-label">Processing</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">₦3.5M</div>
+                    <div class="stat-label">Total Cost</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">No</div>
+                    <div class="stat-label">Job Needed</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">PR</div>
+                    <div class="stat-label">Direct</div>
+                </div>
+            </div>
+
             <!-- Quiz -->
             <div class="quiz-section">
                 <div class="quiz-header">
@@ -414,6 +464,56 @@
                 }
             });
         });
+        
+        // ========== ENGAGEMENT BOOSTERS ==========
+        let shownReward = false, shownMilestone = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            const milestone = document.getElementById('progressMilestone');
+            const fill = document.getElementById('milestoneFill');
+            const percent = document.getElementById('milestonePercent');
+            const reward = document.getElementById('scrollReward');
+            
+            if (scrollPercent > 10 && !shownMilestone) { milestone.classList.add('show'); shownMilestone = true; }
+            if (fill) fill.style.width = scrollPercent + '%';
+            if (percent) percent.textContent = scrollPercent + '%';
+            
+            const mt = document.querySelector('.progress-milestone .milestone-text');
+            if (mt) {
+                if (scrollPercent < 25) mt.textContent = '📖 Starting...';
+                else if (scrollPercent < 50) mt.textContent = '📚 Keep going!';
+                else if (scrollPercent < 75) mt.textContent = '🔥 Halfway!';
+                else mt.textContent = '🚀 Almost done!';
+            }
+            
+            if (scrollPercent >= 50 && !shownReward && reward) { 
+                shownReward = true; 
+                reward.classList.add('show'); 
+                setTimeout(() => reward.classList.remove('show'), 3000); 
+            }
+        });
+        
+        let exitShown = false;
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 10 && !exitShown && !sessionStorage.getItem('exitModalShown')) {
+                exitShown = true; 
+                sessionStorage.setItem('exitModalShown', 'true');
+                const modal = document.getElementById('exitModal');
+                if (modal) modal.classList.add('show');
+            }
+        });
+        
+        function closeExitModal() { 
+            const modal = document.getElementById('exitModal');
+            if (modal) modal.classList.remove('show'); 
+        }
+        
+        const exitModal = document.getElementById('exitModal');
+        if (exitModal) {
+            exitModal.addEventListener('click', function(e) { 
+                if (e.target === this) closeExitModal(); 
+            });
+        }
     </script>
 </body>
 </html>

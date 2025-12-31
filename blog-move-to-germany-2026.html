@@ -50,6 +50,27 @@
         </div>
     </header>
 
+    <!-- Progress Milestone Bar -->
+    <div class="progress-milestone" id="progressMilestone">
+        <span class="milestone-text">📖 Reading...</span>
+        <div class="milestone-bar"><div class="milestone-fill" id="milestoneFill"></div></div>
+        <span class="milestone-text" id="milestonePercent">0%</span>
+    </div>
+
+    <!-- Scroll Reward -->
+    <div class="scroll-reward" id="scrollReward">🎉 You're halfway! Keep going!</div>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-modal" id="exitModal">
+        <div class="exit-modal-content">
+            <button class="close-btn" onclick="closeExitModal()">&times;</button>
+            <h3>Wait! 🇩🇪</h3>
+            <p>Get our <strong>free Germany visa checklist</strong> with costs in Naira and step-by-step timeline.</p>
+            <a href="free-guide.html" class="btn">Get Free Checklist →</a>
+            <button onclick="closeExitModal()" style="background:none;border:none;color:#64748b;cursor:pointer;margin-top:10px">No thanks</button>
+        </div>
+    </div>
+
     <main class="article-container">
         <div class="article-header">
             <span class="article-category">🇩🇪 Germany Immigration</span>
@@ -62,6 +83,31 @@
         </div>
 
         <div class="article-content">
+            <!-- HOOK BANNER -->
+            <div class="hook-banner urgent">
+                <div class="hook-icon">🚨</div>
+                <div class="hook-text">
+                    NEW: Germany Opportunity Card - Move without job offer!
+                    <span>See the 6-point assessment to check if you qualify</span>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <div class="stat-value">€45K+</div>
+                    <div class="stat-label">Avg Salary</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">21mo</div>
+                    <div class="stat-label">Path to PR</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">Free</div>
+                    <div class="stat-label">Universities</div>
+                </div>
+            </div>
+
             <!-- Quiz -->
             <div class="quiz-section">
                 <div class="quiz-header">
@@ -364,6 +410,38 @@
                 if (typeof fbq !== 'undefined') fbq('trackCustom', 'CTAClick', { content_name: this.textContent.trim(), destination: this.href });
             });
         });
+        
+        // ========== ENGAGEMENT BOOSTERS ==========
+        let shownReward = false, shownMilestone = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            const milestone = document.getElementById('progressMilestone');
+            const fill = document.getElementById('milestoneFill');
+            const percent = document.getElementById('milestonePercent');
+            const reward = document.getElementById('scrollReward');
+            
+            if (scrollPercent > 10 && !shownMilestone) { milestone.classList.add('show'); shownMilestone = true; }
+            fill.style.width = scrollPercent + '%';
+            percent.textContent = scrollPercent + '%';
+            
+            const mt = document.querySelector('.progress-milestone .milestone-text');
+            if (scrollPercent < 25) mt.textContent = '📖 Starting...';
+            else if (scrollPercent < 50) mt.textContent = '📚 Keep going!';
+            else if (scrollPercent < 75) mt.textContent = '🔥 Halfway!';
+            else mt.textContent = '🚀 Almost done!';
+            
+            if (scrollPercent >= 50 && !shownReward) { shownReward = true; reward.classList.add('show'); setTimeout(() => reward.classList.remove('show'), 3000); }
+        });
+        
+        let exitShown = false;
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 10 && !exitShown && !sessionStorage.getItem('exitModalShown')) {
+                exitShown = true; sessionStorage.setItem('exitModalShown', 'true');
+                document.getElementById('exitModal').classList.add('show');
+            }
+        });
+        function closeExitModal() { document.getElementById('exitModal').classList.remove('show'); }
+        document.getElementById('exitModal').addEventListener('click', function(e) { if (e.target === this) closeExitModal(); });
     </script>
 </body>
 </html>

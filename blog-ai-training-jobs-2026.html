@@ -50,6 +50,27 @@
         </div>
     </header>
 
+    <!-- Progress Milestone Bar -->
+    <div class="progress-milestone" id="progressMilestone">
+        <span class="milestone-text">📖 Reading...</span>
+        <div class="milestone-bar"><div class="milestone-fill" id="milestoneFill"></div></div>
+        <span class="milestone-text" id="milestonePercent">0%</span>
+    </div>
+
+    <!-- Scroll Reward Popup -->
+    <div class="scroll-reward" id="scrollReward">🎉 Great! You're halfway through!</div>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-modal" id="exitModal">
+        <div class="exit-modal-content">
+            <button class="close-btn" onclick="closeExitModal()">&times;</button>
+            <h3>Wait! Don't Miss This 💰</h3>
+            <p>Get our <strong>free checklist</strong> of the 7 best-paying AI training platforms hiring Nigerians right now.</p>
+            <a href="free-guide.html" class="btn">Get Free Checklist →</a>
+            <button onclick="closeExitModal()" style="background:none;border:none;color:#64748b;cursor:pointer;margin-top:10px">No thanks, I'll figure it out myself</button>
+        </div>
+    </div>
+
     <main class="article-container">
         <div class="article-header">
             <span class="article-category">🤖 Remote Work</span>
@@ -62,6 +83,35 @@
         </div>
 
         <div class="article-content">
+            <!-- HOOK BANNER - Grab attention immediately -->
+            <div class="hook-banner">
+                <div class="hook-icon">💵</div>
+                <div class="hook-text">
+                    Nigerians earned over $2.5 million from AI training in 2025
+                    <span>Scroll down to see exactly how (with payment proof)</span>
+                </div>
+            </div>
+
+            <!-- Quick Stats - Keep them engaged -->
+            <div class="quick-stats">
+                <div class="quick-stat">
+                    <div class="stat-value">$15-50</div>
+                    <div class="stat-label">Per Hour</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">5+</div>
+                    <div class="stat-label">Platforms</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">Remote</div>
+                    <div class="stat-label">100% WFH</div>
+                </div>
+                <div class="quick-stat">
+                    <div class="stat-value">Weekly</div>
+                    <div class="stat-label">Payments</div>
+                </div>
+            </div>
+
             <!-- Quiz -->
             <div class="quiz-section">
                 <div class="quiz-header">
@@ -366,6 +416,63 @@
             btn.addEventListener('click', function() {
                 if (typeof fbq !== 'undefined') fbq('trackCustom', 'CTAClick', { content_name: this.textContent.trim(), destination: this.href });
             });
+        });
+        
+        // ========== ENGAGEMENT BOOSTERS ==========
+        
+        // Progress milestone bar
+        let shownReward = false;
+        let shownMilestone = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            const milestone = document.getElementById('progressMilestone');
+            const fill = document.getElementById('milestoneFill');
+            const percent = document.getElementById('milestonePercent');
+            const reward = document.getElementById('scrollReward');
+            
+            // Show milestone bar after 10% scroll
+            if (scrollPercent > 10 && !shownMilestone) {
+                milestone.classList.add('show');
+                shownMilestone = true;
+            }
+            
+            fill.style.width = scrollPercent + '%';
+            percent.textContent = scrollPercent + '%';
+            
+            // Update milestone text based on progress
+            const milestoneText = document.querySelector('.progress-milestone .milestone-text');
+            if (scrollPercent < 25) milestoneText.textContent = '📖 Just starting...';
+            else if (scrollPercent < 50) milestoneText.textContent = '📚 Keep going!';
+            else if (scrollPercent < 75) milestoneText.textContent = '🔥 Halfway there!';
+            else if (scrollPercent < 100) milestoneText.textContent = '🚀 Almost done!';
+            else milestoneText.textContent = '🎉 Complete!';
+            
+            // Show reward popup at 50%
+            if (scrollPercent >= 50 && !shownReward) {
+                shownReward = true;
+                reward.classList.add('show');
+                setTimeout(() => reward.classList.remove('show'), 3000);
+            }
+        });
+        
+        // Exit intent detection
+        let exitShown = false;
+        document.addEventListener('mouseout', function(e) {
+            if (e.clientY < 10 && !exitShown && !sessionStorage.getItem('exitModalShown')) {
+                exitShown = true;
+                sessionStorage.setItem('exitModalShown', 'true');
+                document.getElementById('exitModal').classList.add('show');
+                if (typeof fbq !== 'undefined') fbq('trackCustom', 'ExitIntent', { page: document.title });
+            }
+        });
+        
+        function closeExitModal() {
+            document.getElementById('exitModal').classList.remove('show');
+        }
+        
+        // Auto-close exit modal if clicking outside
+        document.getElementById('exitModal').addEventListener('click', function(e) {
+            if (e.target === this) closeExitModal();
         });
     </script>
 </body>
