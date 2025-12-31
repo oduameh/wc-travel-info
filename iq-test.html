@@ -23,12 +23,17 @@
         body{font-family:'Inter',sans-serif;background:var(--bg);min-height:100vh}
         
         .header{background:var(--white);border-bottom:1px solid var(--border);padding:16px 20px}
-        .header-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700;font-size:1.25rem}
         .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),#6366f1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
         .sign-in{color:var(--primary);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px}
         
-        .main{max-width:600px;margin:0 auto;padding:40px 20px}
+        /* 3-Column Layout */
+        .page-wrapper{max-width:1400px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:180px 1fr 180px;gap:30px}
+        .left-rail,.right-rail{position:sticky;top:20px;height:fit-content}
+        .rail-ad{background:var(--white);padding:15px;border-radius:12px;margin-bottom:20px;text-align:center;border:1px solid var(--border)}
+        .rail-ad .ad-label{display:block;font-size:0.65rem;color:var(--text-light);margin-bottom:8px;text-transform:uppercase}
+        .main{max-width:600px;margin:0 auto}
         
         /* Landing Card */
         .landing-card{background:var(--white);border-radius:20px;padding:50px 40px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
@@ -106,10 +111,15 @@
         .footer{text-align:center;padding:40px 20px;color:var(--text-light);font-size:0.8rem}
         .footer a{color:var(--primary);text-decoration:none}
         
+        @media(max-width:1100px){
+            .page-wrapper{grid-template-columns:1fr;max-width:600px}
+            .left-rail,.right-rail{display:none}
+        }
         @media(max-width:600px){
             .landing-card,.question-card,.email-card,.results-card{padding:30px 24px}
             .landing-card h1{font-size:1.4rem}
             .question-text{font-size:1.1rem}
+            .page-wrapper{padding:20px}
         }
     </style>
 </head>
@@ -124,9 +134,25 @@
         </div>
     </header>
 
-    <main class="main">
-        <!-- Landing -->
-        <div class="landing-section" id="landing">
+    <div class="page-wrapper">
+        <!-- Left Ad Rail -->
+        <aside class="left-rail">
+            <div class="rail-ad">
+                <span class="ad-label">Ad</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="vertical" data-full-width-responsive="false"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            <div class="rail-ad">
+                <span class="ad-label">Ad</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="vertical" data-full-width-responsive="false"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Landing -->
+            <div class="landing-section" id="landing">
             <div class="landing-card">
                 <div class="brain-icon">🧠</div>
                 <h1>Ready to begin the <span>IQ Test!</span></h1>
@@ -256,6 +282,26 @@
             </div>
         </div>
     </main>
+
+        <!-- Right Ad Rail -->
+        <aside class="right-rail">
+            <div class="rail-ad">
+                <span class="ad-label">Ad</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="vertical" data-full-width-responsive="false"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            <div class="rail-ad">
+                <span class="ad-label">Ad</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="vertical" data-full-width-responsive="false"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            <div class="rail-ad">
+                <span class="ad-label">Ad</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="vertical" data-full-width-responsive="false"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </aside>
+    </div>
 
     <footer class="footer">
         <p>© 2026 VisaPathway IQ Test. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
