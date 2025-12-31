@@ -3,329 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaGuide | Immigration & Work Abroad Guides 2026</title>
-    <meta name="description" content="Expert guides on immigrating to Canada, Germany, Ireland, and more. Compare visa options, costs, and requirements. Updated for 2026.">
-    <meta name="keywords" content="immigration guide, Canada visa, Germany visa, work abroad, Express Entry, EU Blue Card, work permit, study abroad, international relocation">
+    <title>VisaPathway | Immigration & Finance Guides for Nigerians 2026</title>
+    <meta name="description" content="Expert guides on immigrating to Canada, Germany, Ireland, and more. Compare visa options, costs, and requirements. Plus cryptocurrency, forex, and remote work guides.">
+    <meta name="keywords" content="immigration guide, Canada visa, Germany visa, work abroad, Express Entry, EU Blue Card, work permit, study abroad, cryptocurrency Nigeria, forex trading Nigeria">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://canadamexicovisa.info/">
     
-    <meta property="og:title" content="VisaGuide | Immigration & Work Abroad Guides">
+    <meta property="og:title" content="VisaPathway | Immigration & Finance Guides">
     <meta property="og:description" content="Expert guides on immigrating to Canada, Germany, and more. Compare visa options and requirements.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://canadamexicovisa.info/">
     
-    <meta name="theme-color" content="#1a365d">
+    <meta name="theme-color" content="#0f172a">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="manifest" href="manifest.json">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4C1Z3P77F"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J4C1Z3P77F');
-    </script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J4C1Z3P77F');</script>
     
     <!-- Meta Pixel -->
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1980793392481222');
-    fbq('track', 'PageView');
-    </script>
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1980793392481222');fbq('track','PageView');</script>
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3212022468120924" crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-3212022468120924">
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --primary: #1a365d;
-            --secondary: #2c5282;
-            --accent: #ed8936;
-            --text: #2d3748;
-            --text-light: #718096;
-            --bg: #f7fafc;
-            --white: #ffffff;
-            --border: #e2e8f0;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            background: var(--bg);
-        }
-        
-        /* Header */
-        .header {
-            background: var(--primary);
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .nav a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        
-        .nav a:hover { color: var(--accent); }
-        
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        /* Homepage specific styles */
+        .home-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
         }
         
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            line-height: 1.2;
+        .home-hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.15;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .home-hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.85);
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto 32px;
         }
         
-        .hero-cta {
-            display: inline-block;
-            background: var(--accent);
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #0ea5e9;
             color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 6px;
+            padding: 14px 28px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: background 0.2s;
         }
         
-        .hero-cta:hover { background: #dd6b20; }
-        
-        /* Main Content */
-        main { padding: 50px 0; }
-        
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            text-align: center;
+        .btn-primary:hover {
+            background: #0284c7;
+            color: white;
         }
         
-        /* Country Cards */
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: background 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        
         .country-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 24px;
+            margin: 32px 0;
         }
         
         .country-card {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: inherit;
             display: block;
+            border: 1px solid #e2e8f0;
         }
         
         .country-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: #1e40af;
         }
         
         .country-flag {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
         
         .country-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            color: #0f172a;
+            margin-bottom: 8px;
         }
         
         .country-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+            color: #64748b;
+            font-size: 0.9375rem;
+            margin-bottom: 16px;
         }
         
-        .country-card .tag {
-            display: inline-block;
-            background: var(--bg);
-            color: var(--text-light);
+        .country-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .country-tag {
+            background: #f1f5f9;
+            color: #475569;
             padding: 4px 10px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             border-radius: 4px;
-            margin-right: 5px;
+            font-weight: 500;
         }
         
-        /* Ad Container */
-        .ad-container {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 20px;
-            margin: 40px 0;
-            text-align: center;
-            border-radius: 8px;
+        .features-section {
+            background: white;
+            padding: 64px 20px;
         }
         
-        .ad-label {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        /* Info Section */
-        .info-section {
-            background: var(--white);
-            padding: 50px 20px;
-            margin: 40px 0;
-        }
-        
-        .info-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 40px;
             max-width: 1100px;
             margin: 0 auto;
         }
         
-        .info-item {
+        .feature-item {
             text-align: center;
         }
         
-        .info-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #1e40af, #0ea5e9);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 16px;
         }
         
-        .info-item h3 {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 10px;
+        .feature-item h3 {
+            font-size: 1.125rem;
+            color: #0f172a;
+            margin-bottom: 8px;
         }
         
-        .info-item p {
-            color: var(--text-light);
-            font-size: 0.9rem;
+        .feature-item p {
+            color: #64748b;
+            font-size: 0.9375rem;
         }
         
-        /* Disclaimer */
-        .disclaimer {
+        .disclaimer-box {
             background: #fef3c7;
-            border-left: 4px solid var(--accent);
-            padding: 20px;
+            border-left: 4px solid #d97706;
+            padding: 20px 24px;
             margin: 40px auto;
             max-width: 900px;
             border-radius: 0 8px 8px 0;
         }
         
-        .disclaimer strong { color: #92400e; }
-        .disclaimer p { margin: 0; font-size: 0.9rem; }
-        
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: rgba(255,255,255,0.8);
-            padding: 40px 20px;
-            text-align: center;
+        .disclaimer-box strong {
+            color: #92400e;
         }
         
-        .footer-links { margin-bottom: 20px; }
-        
-        .footer a {
-            color: rgba(255,255,255,0.8);
-            margin: 0 12px;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-        
-        .footer a:hover { color: white; }
-        
-        .footer-note {
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .nav { display: none; }
-            .country-grid { grid-template-columns: 1fr; }
+            .home-hero h1 { font-size: 2rem; }
+            .home-hero { padding: 48px 20px; }
+            .features-section { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <!-- Unified Header -->
+    <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo">🌍 VisaGuide</a>
-            <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="blog.html">Blog</a>
-                <a href="express-entry.html">Express Entry</a>
-                <a href="about.html">About</a>
-            </nav>
+            <div class="header-inner">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-icon">VP</span>
+                    VisaPathway
+                </a>
+                <nav class="site-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="express-entry.html">Express Entry</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                    <a href="free-guide.html" class="nav-cta">Free Guide</a>
+                </nav>
+                <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
+    <!-- Hero -->
+    <section class="home-hero">
         <div class="container">
-            <h1>Your Guide to Working & Living Abroad</h1>
-            <p>Expert immigration guides for Canada, Germany, Ireland, and more. Compare visa options, costs, and requirements.</p>
-            <a href="blog.html" class="hero-cta">Explore Guides →</a>
+            <h1>Your Pathway to Working & Living Abroad</h1>
+            <p>Expert guides on visas, immigration, scholarships, and building wealth — tailored for Nigerians</p>
+            <div class="hero-buttons">
+                <a href="blog.html" class="btn-primary">Explore Guides →</a>
+                <a href="free-guide.html" class="btn-secondary">Free Immigration Checklist</a>
+            </div>
         </div>
     </section>
 
     <main>
-        <div class="container">
+        <div class="container" style="padding:48px 20px;">
             <!-- AD -->
             <div class="ad-container">
                 <span class="ad-label">Advertisement</span>
@@ -333,55 +255,48 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <h2>Popular Destinations</h2>
+            <h2 style="text-align:center;color:#0f172a;margin-bottom:8px;">🌍 Popular Destinations</h2>
+            <p style="text-align:center;color:#64748b;margin-bottom:32px;">Complete immigration guides with costs, requirements, and step-by-step processes</p>
             
             <div class="country-grid">
                 <a href="blog-move-to-canada-2026.html" class="country-card">
                     <div class="country-flag">🇨🇦</div>
                     <h3>Canada</h3>
-                    <p>Express Entry, Provincial Nominee Programs, and study pathways. Welcoming 500,000+ immigrants yearly.</p>
-                    <span class="tag">Express Entry</span>
-                    <span class="tag">PR</span>
+                    <p>Express Entry, Provincial Nominee, Study Permits. Clear path to PR.</p>
+                    <div class="country-tags">
+                        <span class="country-tag">Express Entry</span>
+                        <span class="country-tag">₦3-5M</span>
+                    </div>
                 </a>
-
+                
                 <a href="blog-move-to-germany-2026.html" class="country-card">
                     <div class="country-flag">🇩🇪</div>
                     <h3>Germany</h3>
-                    <p>EU Blue Card, Opportunity Card, and skilled worker visas. Free university education.</p>
-                    <span class="tag">EU Blue Card</span>
-                    <span class="tag">No German needed</span>
+                    <p>New Opportunity Card, EU Blue Card. No job needed to enter!</p>
+                    <div class="country-tags">
+                        <span class="country-tag">No Job Required</span>
+                        <span class="country-tag">€45-85K Salary</span>
+                    </div>
                 </a>
-
+                
                 <a href="blog-move-to-ireland-2026.html" class="country-card">
                     <div class="country-flag">🇮🇪</div>
                     <h3>Ireland</h3>
-                    <p>Critical Skills visa for tech workers. English-speaking EU member with fast path to residence.</p>
-                    <span class="tag">Tech Hub</span>
-                    <span class="tag">English</span>
+                    <p>English-speaking EU. Critical Skills Visa, tech hub.</p>
+                    <div class="country-tags">
+                        <span class="country-tag">English</span>
+                        <span class="country-tag">EU Access</span>
+                    </div>
                 </a>
-
+                
                 <a href="blog-move-to-dubai-2026.html" class="country-card">
                     <div class="country-flag">🇦🇪</div>
                     <h3>Dubai / UAE</h3>
-                    <p>Tax-free income, Golden Visa options, and high salaries. Modern lifestyle hub.</p>
-                    <span class="tag">Tax Free</span>
-                    <span class="tag">Golden Visa</span>
-                </a>
-
-                <a href="blog-move-to-france-2026.html" class="country-card">
-                    <div class="country-flag">🇫🇷</div>
-                    <h3>France</h3>
-                    <p>Talent Passport and French Tech Visa. 35-hour work week and excellent benefits.</p>
-                    <span class="tag">Talent Passport</span>
-                    <span class="tag">EU</span>
-                </a>
-
-                <a href="blog-ai-training-jobs-2026.html" class="country-card">
-                    <div class="country-flag">💼</div>
-                    <h3>Remote AI Jobs</h3>
-                    <p>Get paid to train AI models from home. Earn $500-2000/month working online.</p>
-                    <span class="tag">Work from Home</span>
-                    <span class="tag">USD Pay</span>
+                    <p>Tax-free income, Golden Visa (10 years), high salaries.</p>
+                    <div class="country-tags">
+                        <span class="country-tag">Tax Free</span>
+                        <span class="country-tag">$3-10K/month</span>
+                    </div>
                 </a>
             </div>
 
@@ -391,36 +306,83 @@
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
+
+            <h2 style="text-align:center;color:#0f172a;margin:48px 0 8px;">💰 Earn & Invest from Nigeria</h2>
+            <p style="text-align:center;color:#64748b;margin-bottom:32px;">Build wealth while you plan your move — or stay and earn remotely</p>
+            
+            <div class="country-grid">
+                <a href="blog-ai-training-jobs-2026.html" class="country-card">
+                    <div class="country-flag">🤖</div>
+                    <h3>AI Training Jobs</h3>
+                    <p>Earn $500-2,000/month training AI models from home.</p>
+                    <div class="country-tags">
+                        <span class="country-tag">Remote</span>
+                        <span class="country-tag">USD Payments</span>
+                    </div>
+                </a>
+                
+                <a href="blog-cryptocurrency-nigeria-2026.html" class="country-card">
+                    <div class="country-flag">₿</div>
+                    <h3>Cryptocurrency</h3>
+                    <p>Buy Bitcoin, USDT safely. Best exchanges for Nigerians.</p>
+                    <div class="country-tags">
+                        <span class="country-tag">Binance P2P</span>
+                        <span class="country-tag">Start $10</span>
+                    </div>
+                </a>
+                
+                <a href="blog-forex-trading-nigeria-2026.html" class="country-card">
+                    <div class="country-flag">📈</div>
+                    <h3>Forex Trading</h3>
+                    <p>Best brokers, how to start, avoid scams.</p>
+                    <div class="country-tags">
+                        <span class="country-tag">XM, Exness</span>
+                        <span class="country-tag">Min $5</span>
+                    </div>
+                </a>
+                
+                <a href="blog-canada-scholarships-2026.html" class="country-card">
+                    <div class="country-flag">🎓</div>
+                    <h3>Canada Scholarships</h3>
+                    <p>Fully funded opportunities — ₦0 tuition possible!</p>
+                    <div class="country-tags">
+                        <span class="country-tag">Vanier $50K</span>
+                        <span class="country-tag">Full Funding</span>
+                    </div>
+                </a>
+            </div>
         </div>
 
-        <section class="info-section">
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="info-icon">📚</div>
-                    <h3>Research-Based Guides</h3>
-                    <p>Comprehensive information compiled from official government sources and immigration experts.</p>
+        <!-- Features -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <h3>Step-by-Step Guides</h3>
+                    <p>Clear processes with costs in Naira, timelines, and document checklists.</p>
                 </div>
-                <div class="info-item">
-                    <div class="info-icon">🔄</div>
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
                     <h3>Updated for 2026</h3>
-                    <p>All guides reflect the latest visa requirements, processing times, and immigration policies.</p>
+                    <p>All guides reflect current requirements, fees, and processing times.</p>
                 </div>
-                <div class="info-item">
-                    <div class="info-icon">💰</div>
-                    <h3>Cost Breakdowns</h3>
-                    <p>Detailed cost estimates for visa fees, relocation expenses, and settlement funds.</p>
+                <div class="feature-item">
+                    <div class="feature-icon">🇳🇬</div>
+                    <h3>Made for Nigerians</h3>
+                    <p>Specific advice for Nigerian applicants, including payment methods and document sourcing.</p>
                 </div>
-                <div class="info-item">
-                    <div class="info-icon">✅</div>
-                    <h3>Step-by-Step Process</h3>
-                    <p>Clear, actionable steps from application to arrival in your destination country.</p>
+                <div class="feature-item">
+                    <div class="feature-icon">💡</div>
+                    <h3>Honest Advice</h3>
+                    <p>No false promises. Real requirements, realistic timelines, actual costs.</p>
                 </div>
             </div>
         </section>
 
         <div class="container">
-            <div class="disclaimer">
-                <p><strong>⚠️ Disclaimer:</strong> This website provides educational information only. We are not immigration lawyers or consultants. Always verify information with official government sources and consult a licensed professional for your specific situation.</p>
+            <!-- Disclaimer -->
+            <div class="disclaimer-box">
+                <p><strong>⚠️ Important:</strong> This website provides educational information only. We are not affiliated with any government agency, embassy, or immigration authority. Always verify information with official government sources before making decisions.</p>
             </div>
 
             <!-- AD -->
@@ -432,17 +394,47 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
-            <a href="express-entry.html">Express Entry</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">VisaPathway</div>
+                    <p style="color:rgba(255,255,255,0.7);font-size:0.9375rem;max-width:280px;">
+                        Expert immigration and finance guides for Nigerians looking to relocate or build wealth.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Immigration</h4>
+                    <ul>
+                        <li><a href="blog-move-to-canada-2026.html">Canada</a></li>
+                        <li><a href="blog-move-to-germany-2026.html">Germany</a></li>
+                        <li><a href="express-entry.html">Express Entry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Finance</h4>
+                    <ul>
+                        <li><a href="blog-cryptocurrency-nigeria-2026.html">Cryptocurrency</a></li>
+                        <li><a href="blog-forex-trading-nigeria-2026.html">Forex Trading</a></li>
+                        <li><a href="blog-banks-dollar-accounts-2026.html">Dollar Accounts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 VisaPathway. All rights reserved.</p>
+                <p class="footer-disclaimer">Educational information only. Not affiliated with any government agency.</p>
+            </div>
         </div>
-        <p class="footer-note">© 2026 VisaGuide. Educational information only. Not affiliated with any government agency.</p>
     </footer>
 </body>
 </html>

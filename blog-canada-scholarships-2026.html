@@ -24,111 +24,52 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#dc2626;--primary-dark:#991b1b;--accent:#f59e0b;--success:#10b981;--text-primary:#1f2937;--text-secondary:#4b5563;--bg-light:#fef2f2;--bg-white:#fff;--border:#e5e7eb}
-        body{font-family:'Inter',-apple-system,sans-serif;background:linear-gradient(135deg,#fef2f2 0%,#fff 50%,#fee2e2 100%);color:var(--text-primary);line-height:1.7}
-        .site-header{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;padding:15px 0;position:sticky;top:0;z-index:1000}
-        .header-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
-        .logo{font-size:1.5rem;font-weight:800;color:#fff;text-decoration:none}
-        .nav-links{display:flex;gap:25px}
-        .nav-links a{color:rgba(255,255,255,.9);text-decoration:none;font-weight:500}
-        .reading-progress{position:fixed;top:0;left:0;width:0%;height:4px;background:var(--accent);z-index:1001}
-        .page-container{max-width:900px;margin:0 auto;padding:30px 20px}
-        .article-card{background:var(--bg-white);border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.1)}
-        .article-hero{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;padding:40px 30px;text-align:center}
-        .article-badge{display:inline-block;background:var(--accent);color:var(--primary-dark);padding:8px 20px;border-radius:30px;font-size:.85rem;font-weight:700;margin-bottom:20px}
-        .article-hero h1{font-size:2rem;font-weight:800;margin-bottom:15px;line-height:1.2}
-        .article-meta{display:flex;justify-content:center;gap:25px;margin-top:25px;font-size:.9rem;opacity:.85}
-        .article-content{padding:40px 35px}
-        
-        .quiz-section{background:linear-gradient(135deg,#fef3c7,#fef9c3);border:3px solid var(--accent);border-radius:16px;padding:30px;margin-bottom:35px}
-        .quiz-header{text-align:center;margin-bottom:25px}
-        .quiz-header h3{color:var(--primary-dark);font-size:1.5rem;margin-bottom:10px}
-        .quiz-question{background:#fff;border-radius:12px;padding:25px;margin-bottom:15px}
-        .quiz-question p{font-weight:600;margin-bottom:15px}
-        .quiz-options{display:flex;flex-direction:column;gap:10px}
-        .quiz-option{display:flex;align-items:center;gap:12px;padding:12px 15px;border:2px solid var(--border);border-radius:10px;cursor:pointer;transition:all .3s}
-        .quiz-option:hover,.quiz-option.selected{border-color:var(--primary);background:#fef2f2}
-        .quiz-result{display:none;background:linear-gradient(135deg,#dcfce7,#d1fae5);border:2px solid var(--success);border-radius:12px;padding:25px;text-align:center;margin-top:20px}
-        .quiz-result.show{display:block}
-        .quiz-btn{background:var(--primary);color:#fff;border:none;padding:15px 40px;border-radius:30px;font-size:1rem;font-weight:700;cursor:pointer;display:block;margin:25px auto 0}
-        
-        h2{font-size:1.5rem;color:var(--primary-dark);margin:45px 0 20px;padding-bottom:12px;border-bottom:3px solid var(--primary)}
-        h3{font-size:1.2rem;margin:25px 0 15px;color:var(--text-primary)}
-        p{margin-bottom:18px;color:var(--text-secondary)}
-        ul,ol{margin:0 0 25px 25px;color:var(--text-secondary)}
-        li{margin-bottom:10px}
-        
-        .scholarship-card{background:var(--bg-white);border:2px solid var(--border);border-radius:16px;padding:25px;margin:20px 0;transition:all .3s}
-        .scholarship-card:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(220,38,38,.1)}
-        .scholarship-card.featured{border-color:var(--success);background:linear-gradient(to right,#dcfce7,#fff)}
-        .scholarship-card.featured::before{content:"⭐ FULLY FUNDED";display:block;background:var(--success);color:#fff;padding:4px 12px;border-radius:12px;font-size:.75rem;width:fit-content;margin-bottom:15px}
+        .scholarship-card{margin:20px 0}
+        .scholarship-card.featured::before{content:"⭐ FULLY FUNDED";display:block;background:var(--success);color:#fff;padding:4px 12px;border-radius:4px;font-size:.75rem;width:fit-content;margin-bottom:15px}
         .scholarship-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px}
-        .scholarship-name{font-size:1.3rem;font-weight:700;color:var(--primary-dark)}
-        .scholarship-value{background:var(--success);color:#fff;padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:700}
-        
-        .info-box{border-radius:12px;padding:22px;margin:25px 0}
-        .info-box.tip{background:linear-gradient(135deg,#dcfce7,#d1fae5);border-left:5px solid var(--success)}
-        .info-box.warning{background:linear-gradient(135deg,#fef3c7,#fef9c3);border-left:5px solid var(--accent)}
-        .info-box.alert{background:linear-gradient(135deg,#fee2e2,#fecaca);border-left:5px solid var(--primary)}
-        
-        .deadline-table{width:100%;border-collapse:collapse;margin:25px 0;border-radius:12px;overflow:hidden}
-        .deadline-table th{background:var(--primary);color:#fff;padding:15px;text-align:left}
-        .deadline-table td{padding:15px;border-bottom:1px solid var(--border)}
-        .deadline-table tr:nth-child(even){background:#fef2f2}
-        
-        .ad-container{background:#f3f4f6;border:1px dashed var(--border);border-radius:12px;padding:20px;margin:35px 0;text-align:center}
-        .ad-label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;margin-bottom:10px;display:block}
-        
-        .cta-box{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-radius:16px;padding:35px;margin:40px 0;text-align:center}
-        .cta-box h3{color:#fff;margin-bottom:12px}
-        .cta-box a{display:inline-block;background:var(--accent);color:var(--primary-dark);padding:14px 35px;border-radius:30px;text-decoration:none;font-weight:700}
-        
-        .faq-item{border:1px solid var(--border);border-radius:10px;margin:12px 0;overflow:hidden}
-        .faq-question{background:var(--bg-light);padding:18px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between}
-        .faq-answer{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s}
-        .faq-item.active .faq-answer{padding:20px;max-height:500px}
-        
-        .related-section{background:var(--bg-light);border-radius:12px;padding:25px;margin-top:35px}
-        .related-section ul{list-style:none;margin:0;padding:0}
-        .related-section li{margin:12px 0}
-        .related-section a{color:var(--primary);text-decoration:none;font-weight:500}
-        
-        .site-footer{background:var(--primary-dark);color:rgba(255,255,255,.8);padding:35px 20px;margin-top:50px;text-align:center}
-        .site-footer a{color:rgba(255,255,255,.8)}
-        
-        @media(max-width:768px){.article-hero h1{font-size:1.6rem}.article-content{padding:25px 20px}.nav-links{display:none}.article-meta{flex-direction:column;gap:10px}}
+        .scholarship-name{font-size:1.25rem;font-weight:700;color:var(--brand-primary)}
+        .scholarship-value{background:var(--success);color:#fff;padding:6px 14px;border-radius:var(--radius-sm);font-size:.85rem;font-weight:700}
     </style>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
+    
     <header class="site-header">
-        <div class="header-container">
-            <a href="index.html" class="logo">🎓 ScholarshipNG</a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="blog.html">Blog</a>
-                <a href="free-guide.html">Free Guide</a>
-            </nav>
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-icon">VP</span>
+                    VisaPathway
+                </a>
+                <nav class="site-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="express-entry.html">Express Entry</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                    <a href="free-guide.html" class="nav-cta">Free Guide</a>
+                </nav>
+                <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+            </div>
         </div>
     </header>
 
-    <main class="page-container">
-        <article class="article-card">
-            <div class="article-hero">
-                <span class="article-badge">💰 ₦0 Tuition Possible</span>
-                <h1>Study in Canada Scholarships 2026: Full Funding for Nigerians</h1>
-                <p style="opacity:.9">Get your Master's or PhD fully funded! Tuition + living expenses + flights covered.</p>
-                <div class="article-meta">
-                    <span>📅 Updated January 2026</span>
-                    <span>⏱️ 18 min read</span>
-                    <span>👁️ 124,000+ readers</span>
-                </div>
+    <main class="article-container">
+        <div class="article-header">
+            <span class="article-category">🎓 Scholarships</span>
+            <h1>Study in Canada Scholarships 2026: Full Funding for Nigerians</h1>
+            <div class="article-meta">
+                <span>📅 Updated January 2026</span>
+                <span>⏱️ 18 min read</span>
+                <span>💰 ₦0 Tuition Possible</span>
             </div>
+        </div>
 
-            <div class="article-content">
+        <div class="article-content">
                 <!-- Quiz -->
                 <div class="quiz-section">
                     <div class="quiz-header">
@@ -336,12 +277,16 @@
                         <li><a href="blog-proof-of-funds-nigeria-2026.html">Proof of Funds Requirements</a></li>
                     </ul>
                 </div>
-            </div>
-        </article>
+        </div>
     </main>
 
     <footer class="site-footer">
-        <p>© 2026 Canada Mexico Visa Info | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        <div class="footer-inner">
+            <div class="footer-bottom">
+                <p>© 2026 VisaPathway. All rights reserved.</p>
+                <p class="footer-disclaimer">Educational information only. Not affiliated with any government.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
