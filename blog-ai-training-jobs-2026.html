@@ -391,6 +391,17 @@
                 </ul>
             </div>
 
+            <!-- INLINE ARTICLE CARD - Reduce Bounce -->
+            <a href="blog-banks-dollar-accounts-2026.html" class="inline-article-card">
+                <div class="card-icon">💵</div>
+                <div class="card-content">
+                    <div class="card-label">Essential Reading</div>
+                    <div class="card-title">Best Dollar Accounts for Nigerians 2026</div>
+                    <div class="card-desc">How to receive your AI training earnings: Payoneer, Grey, Wise, domiciliary accounts compared</div>
+                </div>
+                <div class="card-arrow">→</div>
+            </a>
+
             <div class="ad-container">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -671,14 +682,53 @@
                 <li><strong>Join communities:</strong> Reddit r/beermoney, r/remotasks for tips and support</li>
             </ol>
 
-            <div class="related-section">
-                <h3>📚 Continue Reading: Related Guides</h3>
-                <ul>
-                    <li><a href="blog-banks-dollar-accounts-2026.html">Best Dollar Accounts in Nigeria: Complete Guide</a></li>
-                    <li><a href="blog-proof-of-funds-nigeria-2026.html">Building Proof of Funds for Immigration</a></li>
-                    <li><a href="blog-move-to-canada-2026.html">How to Move to Canada from Nigeria</a></li>
-                    <li><a href="blog-move-to-germany-2026.html">How to Move to Germany from Nigeria</a></li>
-                </ul>
+            <!-- POPULAR ARTICLES GRID - Reduce Bounce Rate -->
+            <div class="popular-articles">
+                <h3>🔥 Popular Articles You'll Also Love</h3>
+                <div class="popular-articles-grid">
+                    <a href="blog-banks-dollar-accounts-2026.html" class="popular-article-item">
+                        <div class="item-icon">💵</div>
+                        <div class="item-content">
+                            <div class="item-title">Best Dollar Accounts Nigeria 2026</div>
+                            <div class="item-meta">Grey • Payoneer • Domiciliary</div>
+                        </div>
+                    </a>
+                    <a href="blog-move-to-canada-2026.html" class="popular-article-item">
+                        <div class="item-icon">🍁</div>
+                        <div class="item-content">
+                            <div class="item-title">Move to Canada from Nigeria</div>
+                            <div class="item-meta">Express Entry • Study Permit</div>
+                        </div>
+                    </a>
+                    <a href="blog-move-to-germany-2026.html" class="popular-article-item">
+                        <div class="item-icon">🇩🇪</div>
+                        <div class="item-content">
+                            <div class="item-title">Move to Germany: EU Blue Card</div>
+                            <div class="item-meta">Opportunity Card • Work Visa</div>
+                        </div>
+                    </a>
+                    <a href="blog-proof-of-funds-nigeria-2026.html" class="popular-article-item">
+                        <div class="item-icon">🏦</div>
+                        <div class="item-content">
+                            <div class="item-title">Proof of Funds Guide Nigeria</div>
+                            <div class="item-meta">Bank Statements • Verification</div>
+                        </div>
+                    </a>
+                    <a href="blog-move-to-dubai-2026.html" class="popular-article-item">
+                        <div class="item-icon">🇦🇪</div>
+                        <div class="item-content">
+                            <div class="item-title">Move to Dubai: Golden Visa</div>
+                            <div class="item-meta">Tax-Free • 10-Year Visa</div>
+                        </div>
+                    </a>
+                    <a href="blog-move-to-ireland-2026.html" class="popular-article-item">
+                        <div class="item-icon">🇮🇪</div>
+                        <div class="item-content">
+                            <div class="item-title">Move to Ireland: Critical Skills</div>
+                            <div class="item-meta">EU Access • English-Speaking</div>
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div class="ad-container">
@@ -691,6 +741,14 @@
         <!-- google_ad_section_end -->
         <!-- GOOGLE ADSENSE SECTION TARGETING END -->
     </main>
+
+    <!-- Read Next Bar - Reduces Bounce Rate -->
+    <div class="read-next-bar" id="readNextBar">
+        <span class="label">📖 Read Next</span>
+        <span class="title">Best Dollar Accounts for Nigerians: Receive Your AI Earnings</span>
+        <a href="blog-banks-dollar-accounts-2026.html" class="arrow">Read Now →</a>
+        <button class="close-bar" onclick="closeReadNext()">×</button>
+    </div>
 
     <!-- Mobile Sticky Bottom Ad -->
     <div class="mobile-sticky-ad">
@@ -751,7 +809,20 @@
                 if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: document.title, content_category: 'Remote Work', content_type: 'article' });
                 if (typeof gtag !== 'undefined') gtag('event', 'scroll_depth_50', { 'event_category': 'Engagement' });
             }
+            
+            // Read Next Bar - Show after 40% scroll
+            const readNextBar = document.getElementById('readNextBar');
+            if (readNextBar) {
+                if (scrollPercent >= 40) { readNextBar.classList.add('visible'); }
+                else { readNextBar.classList.remove('visible'); }
+            }
         });
+        
+        function closeReadNext() { 
+            const bar = document.getElementById('readNextBar');
+            if (bar) bar.remove();
+        }
+        
         setTimeout(function() {
             if (typeof fbq !== 'undefined') fbq('trackCustom', 'TimeOnPage30s', { content_name: document.title });
             if (typeof gtag !== 'undefined') gtag('event', 'engaged_30s', { 'event_category': 'Engagement' });

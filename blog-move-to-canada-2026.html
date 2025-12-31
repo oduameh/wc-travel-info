@@ -624,16 +624,54 @@
                 <li><strong>Prepare Proof of Funds:</strong> Start saving or consolidating funds into acceptable accounts</li>
             </ol>
 
-            <div class="related-section">
-                <h3>📚 Continue Reading: Related Immigration Guides</h3>
-                <ul>
-                    <li><a href="blog-crs-score-2026.html">Complete CRS Score Calculator and Improvement Guide</a></li>
-                    <li><a href="blog-ielts-preparation-2026.html">IELTS Preparation Guide: Score 7.0+ for Express Entry</a></li>
-                    <li><a href="blog-proof-of-funds-nigeria-2026.html">Proof of Funds Requirements for Nigerian Applicants</a></li>
-                    <li><a href="blog-work-canada-no-job-offer-2026.html">How to Work in Canada Without a Job Offer</a></li>
-                    <li><a href="express-entry.html">Express Entry Deep Dive: Advanced Strategies</a></li>
-                </ul>
-                            </div>
+            <!-- POPULAR ARTICLES GRID - Reduce Bounce Rate -->
+            <div class="popular-articles">
+                <h3>🔥 Popular Articles You'll Also Love</h3>
+                <div class="popular-articles-grid">
+                    <a href="blog-crs-score-2026.html" class="popular-article-item">
+                        <div class="item-icon">📊</div>
+                        <div class="item-content">
+                            <div class="item-title">How to Improve Your CRS Score</div>
+                            <div class="item-meta">Express Entry • +30-600 Points</div>
+                        </div>
+                    </a>
+                    <a href="blog-move-to-germany-2026.html" class="popular-article-item">
+                        <div class="item-icon">🇩🇪</div>
+                        <div class="item-content">
+                            <div class="item-title">Move to Germany: EU Blue Card</div>
+                            <div class="item-meta">Opportunity Card • Work Visa</div>
+                        </div>
+                    </a>
+                    <a href="blog-ai-training-jobs-2026.html" class="popular-article-item">
+                        <div class="item-icon">💰</div>
+                        <div class="item-content">
+                            <div class="item-title">AI Training Jobs: $500-2,000/mo</div>
+                            <div class="item-meta">Remote Work • USD Income</div>
+                        </div>
+                    </a>
+                    <a href="blog-proof-of-funds-nigeria-2026.html" class="popular-article-item">
+                        <div class="item-icon">🏦</div>
+                        <div class="item-content">
+                            <div class="item-title">Proof of Funds Guide Nigeria</div>
+                            <div class="item-meta">Bank Statements • ₦16M+</div>
+                        </div>
+                    </a>
+                    <a href="blog-ielts-preparation-2026.html" class="popular-article-item">
+                        <div class="item-icon">📝</div>
+                        <div class="item-content">
+                            <div class="item-title">IELTS Preparation Guide</div>
+                            <div class="item-meta">Score 7.0+ • Study Tips</div>
+                        </div>
+                    </a>
+                    <a href="blog-work-canada-no-job-offer-2026.html" class="popular-article-item">
+                        <div class="item-icon">✅</div>
+                        <div class="item-content">
+                            <div class="item-title">Work Canada Without Job Offer</div>
+                            <div class="item-meta">FSW • PNP • Study Route</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
                             
             <div class="ad-container">
                         <span class="ad-label">Advertisement</span>
@@ -645,6 +683,14 @@
         <!-- google_ad_section_end -->
         <!-- GOOGLE ADSENSE SECTION TARGETING END -->
     </main>
+
+    <!-- Read Next Bar - Reduces Bounce Rate -->
+    <div class="read-next-bar" id="readNextBar">
+        <span class="label">📖 Read Next</span>
+        <span class="title">How to Improve Your CRS Score: Get 30-600 Extra Points</span>
+        <a href="blog-crs-score-2026.html" class="arrow">Read Now →</a>
+        <button class="close-bar" onclick="closeReadNext()">×</button>
+    </div>
 
     <!-- Mobile Sticky Bottom Ad -->
     <div class="mobile-sticky-ad">
@@ -719,7 +765,19 @@
                     gtag('event', 'scroll_depth_50', { 'event_category': 'Engagement' });
                 }
             }
+            
+            // Read Next Bar - Show after 40% scroll
+            const readNextBar = document.getElementById('readNextBar');
+            if (readNextBar) {
+                if (scrollPercent >= 40) { readNextBar.classList.add('visible'); }
+                else { readNextBar.classList.remove('visible'); }
+            }
         });
+        
+        function closeReadNext() { 
+            const bar = document.getElementById('readNextBar');
+            if (bar) bar.remove();
+        }
         
         // Track 30 seconds on page (high-quality visitor)
         setTimeout(function() {
