@@ -325,5 +325,13 @@
         function toggleFaq(el){const item=el.parentElement,active=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(f=>{f.classList.remove('active');f.querySelector('span').textContent='+'});if(!active){item.classList.add('active');el.querySelector('span').textContent='−'}}
         document.querySelectorAll('.quiz-option').forEach(o=>o.addEventListener('click',function(){this.closest('.quiz-question').querySelectorAll('.quiz-option').forEach(x=>x.classList.remove('selected'));this.classList.add('selected')}));
     </script>
+
+    <!-- Mobile Sticky Bottom Ad -->
+    <div class="mobile-sticky-ad" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;padding:8px;box-shadow:0 -4px 20px rgba(0,0,0,0.15);z-index:900;text-align:center">
+        <span style="display:block;font-size:0.625rem;color:#94a3b8;text-transform:uppercase;margin-bottom:4px">Ad</span>
+        <ins class="adsbygoogle" style="display:block;height:50px" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    <style>@media(max-width:768px){.mobile-sticky-ad{display:block!important}body{padding-bottom:100px}}</style>
 </body>
 </html>

@@ -686,7 +686,7 @@ tr:nth-child(even) {
 }
 
 /* ========================================
-   ADS
+   ADS - Mobile Optimized
    ======================================== */
 .ad-container {
     background: var(--bg-tertiary);
@@ -695,6 +695,7 @@ tr:nth-child(even) {
     padding: var(--space-md);
     margin: var(--space-xl) 0;
     text-align: center;
+    min-height: 100px;
 }
 
 .ad-label {
@@ -704,6 +705,64 @@ tr:nth-child(even) {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: var(--space-sm);
+}
+
+/* Mobile sticky bottom ad */
+.mobile-sticky-ad {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    padding: 8px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    z-index: 900;
+    text-align: center;
+}
+
+.mobile-sticky-ad .ad-label {
+    font-size: 0.625rem;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-ad {
+        display: block;
+    }
+    
+    /* Add padding to body so content isn't hidden behind sticky ad */
+    body {
+        padding-bottom: 100px;
+    }
+    
+    /* Make in-content ads more prominent on mobile */
+    .ad-container {
+        margin: var(--space-lg) -16px;
+        border-radius: 0;
+        padding: var(--space-md) var(--space-sm);
+        border-left: none;
+        border-right: none;
+    }
+    
+    /* Ensure ads have good visibility */
+    .ad-container ins {
+        min-height: 250px;
+    }
+}
+
+/* In-article native ad style */
+.ad-native {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.ad-native .ad-label {
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
 }
 
 /* ========================================
