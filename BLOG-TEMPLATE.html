@@ -231,6 +231,42 @@
 
     <!-- Scripts -->
     <script>
+        // ========================================
+        // META PIXEL EVENT TRACKING (AEO)
+        // ========================================
+        
+        // Track ViewContent when user scrolls 50% (engaged reader)
+        let hasTrackedViewContent = false;
+        window.addEventListener('scroll', function() {
+            if (hasTrackedViewContent) return;
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent >= 50) {
+                hasTrackedViewContent = true;
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'ViewContent', {
+                        content_name: document.title,
+                        content_category: 'Blog Article',
+                        content_type: 'article'
+                    });
+                }
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth_50', { 'event_category': 'Engagement' });
+                }
+            }
+        });
+        
+        // Track time on page (30 seconds = engaged user)
+        setTimeout(function() {
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'TimeOnPage30s', {
+                    content_name: document.title
+                });
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'engaged_30s', { 'event_category': 'Engagement' });
+            }
+        }, 30000);
+        
         // Reading progress bar
         window.addEventListener('scroll',()=>{
             const d=document.documentElement.scrollHeight-window.innerHeight;
@@ -263,6 +299,17 @@
             const q2=document.querySelector('input[name="q2"]:checked');
             const result=document.getElementById('quizResult');
             
+            // Track quiz completion with Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CompleteRegistration', {
+                    content_name: 'Quiz Completed',
+                    status: true
+                });
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quiz_complete', { 'event_category': 'Engagement' });
+            }
+            
             // Add your logic here
             document.getElementById('resultTitle').innerHTML='📊 Your Result';
             document.getElementById('resultText').innerHTML='Result text based on selections.';
@@ -270,6 +317,18 @@
             result.classList.add('show');
             result.scrollIntoView({behavior:'smooth',block:'center'});
         }
+        
+        // Track CTA clicks
+        document.querySelectorAll('.cta-box a, .btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'CTAClick', {
+                        content_name: this.textContent,
+                        destination: this.href
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

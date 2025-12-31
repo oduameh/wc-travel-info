@@ -324,8 +324,46 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll',()=>{const d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('readingProgress').style.width=(window.scrollY/d)*100+'%'});
+        // ========== AEO: META PIXEL EVENT TRACKING ==========
+        
+        // Track ViewContent when user scrolls 50% (engaged reader)
+        let hasTrackedViewContent = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            // Reading progress bar
+            document.getElementById('readingProgress').style.width = scrollPercent + '%';
+            
+            // Track 50% scroll depth
+            if (!hasTrackedViewContent && scrollPercent >= 50) {
+                hasTrackedViewContent = true;
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'ViewContent', {
+                        content_name: document.title,
+                        content_category: 'Canada Immigration',
+                        content_type: 'article'
+                    });
+                }
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth_50', { 'event_category': 'Engagement' });
+                }
+            }
+        });
+        
+        // Track 30 seconds on page (high-quality visitor)
+        setTimeout(function() {
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'TimeOnPage30s', { content_name: document.title });
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'engaged_30s', { 'event_category': 'Engagement' });
+            }
+        }, 30000);
+        
+        // FAQ toggle
         function toggleFaq(el){const item=el.parentElement,active=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(f=>{f.classList.remove('active');f.querySelector('span').textContent='+'});if(!active){item.classList.add('active');el.querySelector('span').textContent='−'}}
+        
+        // Quiz option selection
         document.querySelectorAll('.quiz-option').forEach(o=>o.addEventListener('click',function(){this.closest('.quiz-question').querySelectorAll('.quiz-option').forEach(x=>x.classList.remove('selected'));this.classList.add('selected')}));
         
         function checkEligibility(){
@@ -333,6 +371,17 @@
             const q2=document.querySelector('input[name="q2"]:checked');
             const q3=document.querySelector('input[name="q3"]:checked');
             const result=document.getElementById('quizResult');
+            
+            // Track quiz completion with Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CompleteRegistration', {
+                    content_name: 'Canada Eligibility Quiz',
+                    status: true
+                });
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quiz_complete', { 'event_category': 'Engagement', 'event_label': 'Canada Quiz' });
+            }
             
             let score=0;
             if(q1)score+={phd:4,bachelors:3,diploma:2,secondary:1}[q1.value]||0;
@@ -356,6 +405,15 @@
             result.classList.add('show');
             result.scrollIntoView({behavior:'smooth',block:'center'});
         }
+        
+        // Track CTA clicks
+        document.querySelectorAll('.cta-box a, .btn, .nav-cta').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'CTAClick', { content_name: this.textContent.trim(), destination: this.href });
+                }
+            });
+        });
     </script>
 </body>
 </html>

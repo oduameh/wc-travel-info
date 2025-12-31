@@ -308,7 +308,22 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll',()=>{const d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('readingProgress').style.width=(window.scrollY/d)*100+'%'});
+        // ========== AEO: META PIXEL EVENT TRACKING ==========
+        let hasTrackedViewContent = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('readingProgress').style.width = scrollPercent + '%';
+            if (!hasTrackedViewContent && scrollPercent >= 50) {
+                hasTrackedViewContent = true;
+                if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: document.title, content_category: 'Germany Immigration', content_type: 'article' });
+                if (typeof gtag !== 'undefined') gtag('event', 'scroll_depth_50', { 'event_category': 'Engagement' });
+            }
+        });
+        setTimeout(function() {
+            if (typeof fbq !== 'undefined') fbq('trackCustom', 'TimeOnPage30s', { content_name: document.title });
+            if (typeof gtag !== 'undefined') gtag('event', 'engaged_30s', { 'event_category': 'Engagement' });
+        }, 30000);
+        
         function toggleFaq(el){const item=el.parentElement,active=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(f=>{f.classList.remove('active');f.querySelector('span').textContent='+'});if(!active){item.classList.add('active');el.querySelector('span').textContent='−'}}
         document.querySelectorAll('.quiz-option').forEach(o=>o.addEventListener('click',function(){this.closest('.quiz-question').querySelectorAll('.quiz-option').forEach(x=>x.classList.remove('selected'));this.classList.add('selected')}));
         
@@ -318,8 +333,11 @@
             const q3=document.querySelector('input[name="q3"]:checked');
             const result=document.getElementById('quizResult');
             
-            let visa,details;
+            // Track quiz completion
+            if (typeof fbq !== 'undefined') fbq('track', 'CompleteRegistration', { content_name: 'Germany Visa Quiz', status: true });
+            if (typeof gtag !== 'undefined') gtag('event', 'quiz_complete', { 'event_category': 'Engagement', 'event_label': 'Germany Quiz' });
             
+            let visa,details;
             if(q1&&q1.value==='yes'&&q2&&q2.value==='degree'){
                 visa='🌟 EU Blue Card';
                 details='Perfect for you! With a degree and job offer, the EU Blue Card is your best option. Fastest path to PR (21-33 months) and allows immediate family reunification.';
@@ -339,6 +357,13 @@
             result.classList.add('show');
             result.scrollIntoView({behavior:'smooth',block:'center'});
         }
+        
+        // Track CTA clicks
+        document.querySelectorAll('.cta-box a, .btn, .nav-cta').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') fbq('trackCustom', 'CTAClick', { content_name: this.textContent.trim(), destination: this.href });
+            });
+        });
     </script>
 </body>
 </html>
