@@ -213,6 +213,7 @@
 </head>
 <body>
     <!-- Unified Header -->
+    <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
     <header class="site-header">
         <div class="container">
             <div class="header-inner">
@@ -221,13 +222,19 @@
                     VisaPathway
                 </a>
                 <nav class="site-nav">
-                    <ul class="nav-links">
+                    <ul class="nav-links" id="navLinks">
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="iq-test.html">🧠 IQ Test</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li class="mobile-only"><a href="free-guide.html" class="mobile-cta">Free Guide</a></li>
                     </ul>
                     <a href="free-guide.html" class="nav-cta">Free Guide</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </nav>
                 <button class="mobile-menu-btn" aria-label="Menu">☰</button>
             </div>
@@ -443,5 +450,14 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('mobileMenuBtn').classList.toggle('active');
+            document.getElementById('menuOverlay').classList.toggle('active');
+            document.body.style.overflow = document.getElementById('navLinks').classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
 </body>
 </html>

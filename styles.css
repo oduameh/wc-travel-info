@@ -242,6 +242,17 @@ p {
     color: white !important;
 }
 
+/* Mobile-only elements */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
 /* Mobile menu button */
 .mobile-menu-btn {
     display: none;
@@ -250,19 +261,112 @@ p {
     padding: var(--space-sm);
     cursor: pointer;
     color: var(--text-primary);
+    font-size: 1.5rem;
+    line-height: 1;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 80px 24px 24px;
+        gap: var(--space-sm);
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        display: flex;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 14px 16px;
+        font-size: 1rem;
+        border-radius: var(--radius-md);
+        transition: background 0.2s;
+    }
+    
+    .nav-links a:hover {
+        background: var(--bg-secondary);
     }
     
     .mobile-menu-btn {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .site-nav {
         gap: var(--space-md);
+    }
+    
+    .nav-cta {
+        display: none;
+    }
+    
+    /* Add CTA to mobile menu */
+    .nav-links .mobile-cta {
+        display: block;
+        margin-top: auto;
+        padding: 14px 20px;
+        background: var(--brand-primary);
+        color: white !important;
+        text-align: center;
+        border-radius: var(--radius-md);
+        font-weight: 600;
     }
 }
 
