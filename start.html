@@ -195,17 +195,17 @@
             <div class="step"></div>
         </div>
         
-        <h1>Quick question before we start...</h1>
-        <p class="subtitle">This helps us personalize your experience</p>
+        <h1>Are you interested in moving abroad in 2026?</h1>
+        <p class="subtitle">We'll show you the best opportunities based on your answer</p>
         
         <div class="options">
-            <div class="option" onclick="selectOption(this, 'male')">
-                <div class="option-icon">👨</div>
-                <div class="option-label">Male</div>
+            <div class="option" onclick="selectOption(this, 'yes')">
+                <div class="option-icon">✈️</div>
+                <div class="option-label">Yes, I am!</div>
             </div>
-            <div class="option" onclick="selectOption(this, 'female')">
-                <div class="option-icon">👩</div>
-                <div class="option-label">Female</div>
+            <div class="option" onclick="selectOption(this, 'exploring')">
+                <div class="option-icon">🤔</div>
+                <div class="option-label">Just exploring</div>
             </div>
         </div>
         
@@ -223,7 +223,7 @@
     </div>
 
     <script>
-        let selectedGender = null;
+        let selectedInterest = null;
         
         // CONFIGURE YOUR DESTINATION HERE:
         // Change this to whichever page you want users to go to
@@ -233,13 +233,13 @@
         // const destination = 'blog-ai-training-jobs-2026.html';
         // const destination = 'blog-move-to-canada-2026.html';
         
-        function selectOption(element, gender) {
+        function selectOption(element, interest) {
             // Remove selected from all
             document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
             
             // Add selected to clicked
             element.classList.add('selected');
-            selectedGender = gender;
+            selectedInterest = interest;
             
             // Enable button
             const btn = document.getElementById('continueBtn');
@@ -249,26 +249,26 @@
             
             // Track selection
             if (typeof fbq !== 'undefined') {
-                fbq('trackCustom', 'GenderSelected', { gender: gender });
+                fbq('trackCustom', 'InterestSelected', { interest: interest });
             }
             if (typeof gtag !== 'undefined') {
-                gtag('event', 'select_gender', { 'gender': gender });
+                gtag('event', 'select_interest', { 'interest_level': interest });
             }
         }
         
         function continueToSite() {
-            if (!selectedGender) return;
+            if (!selectedInterest) return;
             
             // Store selection for potential future use
-            localStorage.setItem('vp_gender', selectedGender);
+            localStorage.setItem('vp_interest', selectedInterest);
             localStorage.setItem('vp_entry_time', Date.now().toString());
             
             // Track conversion
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', { content_name: 'Bridge Page Completion', gender: selectedGender });
+                fbq('track', 'Lead', { content_name: 'Bridge Page Completion', interest: selectedInterest });
             }
             if (typeof gtag !== 'undefined') {
-                gtag('event', 'bridge_page_complete', { 'gender': selectedGender });
+                gtag('event', 'bridge_page_complete', { 'interest_level': selectedInterest });
             }
             
             // Redirect to destination
