@@ -8,246 +8,255 @@
     <!-- NO ADSENSE - This page is ad-free for paid traffic -->
     <meta name="robots" content="noindex, nofollow">
     
-    <!-- Google Analytics (keep for tracking) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4C1Z3P77F"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J4C1Z3P77F');</script>
     
-    <!-- Meta Pixel (keep for audience building) -->
+    <!-- Meta Pixel -->
     <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1980793392481222');fbq('track','PageView');</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+        /* Bridge page specific styles */
+        .bridge-page {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bridge-main {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: var(--space-xl) var(--space-md);
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #1e3a5f 50%, #0c4a6e 100%);
         }
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 48px 40px;
+        
+        .bridge-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl) var(--space-xl);
             max-width: 480px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            box-shadow: var(--shadow-xl);
         }
-        .logo {
-            display: flex;
-            align-items: center;
+        
+        .bridge-card .site-logo {
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 32px;
+            margin-bottom: var(--space-xl);
         }
-        .logo-icon {
-            background: linear-gradient(135deg, #0ea5e9, #6366f1);
-            color: white;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1rem;
-        }
-        .logo span {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
+        
         .step-indicator {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 24px;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
         }
+        
         .step {
             width: 10px;
             height: 10px;
-            border-radius: 50%;
-            background: #e2e8f0;
+            border-radius: var(--radius-full);
+            background: var(--border-light);
         }
+        
         .step.active {
-            background: #0ea5e9;
+            background: var(--brand-accent);
             width: 32px;
             border-radius: 5px;
         }
-        h1 {
-            font-size: 1.75rem;
-            color: #0f172a;
-            margin-bottom: 12px;
+        
+        .bridge-card h1 {
+            font-size: 1.625rem;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
             line-height: 1.3;
         }
-        .subtitle {
-            color: #64748b;
+        
+        .bridge-card .subtitle {
+            color: var(--text-secondary);
             font-size: 1rem;
-            margin-bottom: 36px;
+            margin-bottom: var(--space-xl);
         }
+        
         .options {
             display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
         }
+        
         .option {
             flex: 1;
-            padding: 24px 20px;
-            border: 3px solid #e2e8f0;
-            border-radius: 16px;
+            padding: var(--space-lg) var(--space-md);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
             cursor: pointer;
             transition: all 0.2s;
-            background: white;
+            background: var(--bg-primary);
         }
+        
         .option:hover {
-            border-color: #0ea5e9;
-            background: #f0f9ff;
+            border-color: var(--brand-accent);
+            background: var(--bg-secondary);
             transform: translateY(-2px);
         }
+        
         .option.selected {
-            border-color: #0ea5e9;
+            border-color: var(--brand-accent);
             background: #e0f2fe;
             box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
         }
+        
         .option-icon {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
+            font-size: 2.25rem;
+            margin-bottom: var(--space-sm);
         }
+        
         .option-label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: #0f172a;
+            color: var(--text-primary);
         }
+        
         .continue-btn {
             width: 100%;
-            padding: 18px;
-            background: #cbd5e1;
-            color: #64748b;
+            padding: var(--space-md) var(--space-lg);
+            background: var(--border-medium);
+            color: var(--text-muted);
             border: none;
-            border-radius: 14px;
-            font-size: 1.15rem;
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: not-allowed;
             transition: all 0.3s;
-            font-family: inherit;
+            font-family: var(--font-sans);
         }
+        
         .continue-btn.active {
-            background: linear-gradient(135deg, #0ea5e9, #0284c7);
-            color: white;
+            background: linear-gradient(135deg, var(--brand-accent), #0284c7);
+            color: var(--text-inverse);
             cursor: pointer;
             box-shadow: 0 8px 24px rgba(14, 165, 233, 0.35);
         }
+        
         .continue-btn.active:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 32px rgba(14, 165, 233, 0.4);
         }
+        
         .trust-badges {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid #e2e8f0;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-light);
         }
+        
         .badge {
             display: flex;
             align-items: center;
             gap: 6px;
             font-size: 0.8rem;
-            color: #64748b;
+            color: var(--text-secondary);
         }
+        
         .badge-icon {
             font-size: 1rem;
         }
-        .footer-text {
-            margin-top: 24px;
+        
+        .bridge-footer {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--bg-dark);
+            color: var(--text-muted);
             font-size: 0.75rem;
-            color: #94a3b8;
+        }
+        
+        .bridge-footer a {
+            color: var(--brand-accent);
         }
         
         @media (max-width: 500px) {
-            .card { padding: 36px 24px; }
-            h1 { font-size: 1.5rem; }
-            .options { gap: 12px; }
-            .option { padding: 20px 16px; }
-            .option-icon { font-size: 2rem; }
-            .trust-badges { flex-direction: column; gap: 10px; }
+            .bridge-card { 
+                padding: var(--space-xl) var(--space-md); 
+                margin: var(--space-md);
+            }
+            .bridge-card h1 { font-size: 1.375rem; }
+            .options { gap: var(--space-sm); }
+            .option { padding: var(--space-md) var(--space-sm); }
+            .option-icon { font-size: 1.75rem; }
+            .trust-badges { flex-direction: column; gap: var(--space-sm); }
         }
     </style>
 </head>
-<body>
-    <div class="card">
-        <div class="logo">
-            <div class="logo-icon">VP</div>
-            <span>VisaPathway</span>
-        </div>
-        
-        <div class="step-indicator">
-            <div class="step active"></div>
-            <div class="step"></div>
-            <div class="step"></div>
-        </div>
-        
-        <h1>Are you interested in moving abroad in 2026?</h1>
-        <p class="subtitle">We'll show you the best opportunities based on your answer</p>
-        
-        <div class="options">
-            <div class="option" onclick="selectOption(this, 'yes')">
-                <div class="option-icon">✈️</div>
-                <div class="option-label">Yes, I am!</div>
+<body class="bridge-page">
+    <main class="bridge-main">
+        <div class="bridge-card">
+            <a href="index.html" class="site-logo">
+                <span class="logo-icon">VP</span>
+                VisaPathway
+            </a>
+            
+            <div class="step-indicator">
+                <div class="step active"></div>
+                <div class="step"></div>
+                <div class="step"></div>
             </div>
-            <div class="option" onclick="selectOption(this, 'exploring')">
-                <div class="option-icon">🤔</div>
-                <div class="option-label">Just exploring</div>
+            
+            <h1>Are you interested in moving abroad in 2026?</h1>
+            <p class="subtitle">We'll show you the best opportunities based on your answer</p>
+            
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 'yes')">
+                    <div class="option-icon">✈️</div>
+                    <div class="option-label">Yes, I am!</div>
+                </div>
+                <div class="option" onclick="selectOption(this, 'exploring')">
+                    <div class="option-icon">🤔</div>
+                    <div class="option-label">Just exploring</div>
+                </div>
+            </div>
+            
+            <button class="continue-btn" id="continueBtn" onclick="continueToSite()" disabled>
+                Select an option to continue
+            </button>
+            
+            <div class="trust-badges">
+                <div class="badge"><span class="badge-icon">🔒</span> 100% Free</div>
+                <div class="badge"><span class="badge-icon">⚡</span> Instant Access</div>
+                <div class="badge"><span class="badge-icon">✓</span> No Sign-up</div>
             </div>
         </div>
-        
-        <button class="continue-btn" id="continueBtn" onclick="continueToSite()" disabled>
-            Select an option to continue
-        </button>
-        
-        <div class="trust-badges">
-            <div class="badge"><span class="badge-icon">🔒</span> 100% Free</div>
-            <div class="badge"><span class="badge-icon">⚡</span> Instant Access</div>
-            <div class="badge"><span class="badge-icon">✓</span> No Sign-up</div>
-        </div>
-        
-        <p class="footer-text">By continuing, you agree to our Terms of Service</p>
-    </div>
+    </main>
+    
+    <footer class="bridge-footer">
+        <p>© 2026 VisaPathway. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+    </footer>
 
     <script>
         let selectedInterest = null;
         
-        // CONFIGURE YOUR DESTINATION HERE:
-        // Change this to whichever page you want users to go to
+        // CONFIGURE YOUR DESTINATION HERE
         const destination = 'iq-test.html';
-        // Other options:
-        // const destination = 'blog-move-to-germany-2026.html';
-        // const destination = 'blog-ai-training-jobs-2026.html';
-        // const destination = 'blog-move-to-canada-2026.html';
         
         function selectOption(element, interest) {
-            // Remove selected from all
             document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
-            
-            // Add selected to clicked
             element.classList.add('selected');
             selectedInterest = interest;
             
-            // Enable button
             const btn = document.getElementById('continueBtn');
             btn.classList.add('active');
             btn.disabled = false;
             btn.textContent = 'Continue →';
             
-            // Track selection
             if (typeof fbq !== 'undefined') {
                 fbq('trackCustom', 'InterestSelected', { interest: interest });
             }
@@ -259,11 +268,9 @@
         function continueToSite() {
             if (!selectedInterest) return;
             
-            // Store selection for potential future use
             localStorage.setItem('vp_interest', selectedInterest);
             localStorage.setItem('vp_entry_time', Date.now().toString());
             
-            // Track conversion
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', { content_name: 'Bridge Page Completion', interest: selectedInterest });
             }
@@ -271,10 +278,8 @@
                 gtag('event', 'bridge_page_complete', { 'interest_level': selectedInterest });
             }
             
-            // Redirect to destination
             window.location.href = destination;
         }
     </script>
 </body>
 </html>
-
