@@ -21,154 +21,329 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --primary:#1e3a5f;
-            --accent:#dc2626;
-            --success:#16a34a;
-            --white:#ffffff;
-            --bg:#f8fafc;
-            --text:#1e293b;
-            --text-light:#64748b;
-            --border:#e2e8f0
+        /* Lead capture page specific styles */
+        .lead-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-md);
         }
-        body{font-family:'Inter',sans-serif;background:var(--bg);min-height:100vh}
         
-        /* Header */
-        .site-header{background:var(--white);border-bottom:1px solid var(--border);padding:16px 0}
-        .header-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}
-        .site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary);font-weight:700;font-size:1.25rem}
-        .logo-icon{background:var(--primary);color:var(--white);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem}
-        .nav-links{display:flex;gap:24px;list-style:none}
-        .nav-links a{text-decoration:none;color:var(--text);font-size:0.9rem;font-weight:500}
-        .nav-links a:hover{color:var(--primary)}
+        .lead-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--space-2xl);
+            align-items: start;
+        }
         
-        /* Main content */
-        .main-container{max-width:1200px;margin:0 auto;padding:40px 20px}
+        .lead-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
         
-        /* Ad strip at top */
-        .ad-strip{background:var(--white);padding:20px;margin-bottom:30px;border-radius:12px;text-align:center;border:1px solid var(--border)}
-        .ad-strip .ad-label{display:block;font-size:0.7rem;color:var(--text-light);margin-bottom:8px;text-transform:uppercase}
+        .lead-header {
+            background: linear-gradient(135deg, var(--brand-primary) 0%, #1e3a5f 100%);
+            color: white;
+            padding: var(--space-2xl);
+        }
         
-        /* Two column layout */
-        .content-grid{display:grid;grid-template-columns:1fr 350px;gap:40px;align-items:start}
+        .lead-badge {
+            background: #dc2626;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            display: inline-block;
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+        }
         
-        /* Left column - form */
-        .form-section{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
-        .form-header{background:linear-gradient(135deg,var(--primary) 0%,#2d4a6f 100%);color:var(--white);padding:40px}
-        .form-badge{background:var(--accent);color:var(--white);font-size:.7rem;font-weight:600;padding:6px 14px;border-radius:20px;display:inline-block;margin-bottom:16px;text-transform:uppercase}
-        .form-header h1{font-size:1.75rem;font-weight:700;line-height:1.3;margin-bottom:12px}
-        .form-header p{font-size:1rem;opacity:0.9;line-height:1.6}
+        .lead-header h1 {
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: var(--space-sm);
+        }
         
-        .form-body{padding:40px}
-        .form-group{margin-bottom:20px}
-        .form-group label{display:block;font-size:0.875rem;font-weight:600;color:var(--text);margin-bottom:8px}
-        .form-group input{width:100%;padding:14px 16px;border:2px solid var(--border);border-radius:10px;font-size:1rem;font-family:inherit;transition:border-color 0.2s}
-        .form-group input:focus{outline:none;border-color:var(--primary)}
+        .lead-header p {
+            color: rgba(255,255,255,0.9);
+        }
         
-        .submit-btn{width:100%;padding:16px;background:var(--accent);color:var(--white);border:none;border-radius:10px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;font-family:inherit}
-        .submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(220,38,38,0.3)}
+        .lead-body {
+            padding: var(--space-2xl);
+        }
         
-        .checklist{list-style:none;margin:24px 0}
-        .checklist li{display:flex;align-items:flex-start;margin:10px 0;font-size:0.9rem;color:var(--text)}
-        .checklist li::before{content:"✓";background:var(--success);color:var(--white);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;margin-right:10px;flex-shrink:0}
+        .lead-checklist {
+            list-style: none;
+            margin: 0 0 var(--space-xl) 0;
+            padding: 0;
+        }
         
-        .trust-signals{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);text-align:center}
-        .trust-signals p{font-size:0.8rem;color:var(--text-light);margin:4px 0}
+        .lead-checklist li {
+            display: flex;
+            align-items: flex-start;
+            margin: var(--space-sm) 0;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
         
-        .social-proof{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px}
-        .avatars{display:flex}
-        .avatars span{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--white);font-weight:600;margin-left:-8px;border:2px solid var(--white)}
-        .avatars span:first-child{margin-left:0}
+        .lead-checklist li::before {
+            content: "✓";
+            background: var(--success);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-right: var(--space-sm);
+            flex-shrink: 0;
+        }
         
-        .disclaimer{margin-top:20px;font-size:0.7rem;color:var(--text-light);text-align:center;line-height:1.5}
+        .lead-form-group {
+            margin-bottom: var(--space-md);
+        }
         
-        /* Right column - ads */
-        .sidebar{display:flex;flex-direction:column;gap:24px}
-        .sidebar-ad{background:var(--white);padding:20px;border-radius:12px;border:1px solid var(--border)}
-        .sidebar-ad .ad-label{display:block;font-size:0.7rem;color:var(--text-light);margin-bottom:10px;text-transform:uppercase}
+        .lead-form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
         
-        .related-box{background:var(--white);padding:24px;border-radius:12px;border:1px solid var(--border)}
-        .related-box h3{font-size:1rem;color:var(--primary);margin-bottom:16px}
-        .related-box ul{list-style:none}
-        .related-box li{margin:10px 0}
-        .related-box a{color:var(--text);text-decoration:none;font-size:0.875rem;display:flex;align-items:center;gap:8px}
-        .related-box a:hover{color:var(--primary)}
-        .related-box a::before{content:"→";color:var(--primary)}
+        .lead-form-group input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            transition: border-color 0.2s;
+        }
+        
+        .lead-form-group input:focus {
+            outline: none;
+            border-color: var(--brand-secondary);
+        }
+        
+        .lead-submit-btn {
+            width: 100%;
+            padding: var(--space-md);
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: var(--font-sans);
+        }
+        
+        .lead-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(220,38,38,0.3);
+        }
+        
+        .trust-signals {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+        
+        .trust-signals p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: var(--space-xs) 0;
+        }
+        
+        .social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .avatars {
+            display: flex;
+        }
+        
+        .avatars span {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: white;
+            font-weight: 600;
+            margin-left: -8px;
+            border: 2px solid white;
+        }
+        
+        .avatars span:first-child { margin-left: 0; }
+        
+        .lead-disclaimer {
+            margin-top: var(--space-lg);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
         
         /* Thank you state */
-        .thank-you{display:none;text-align:center;padding:60px 40px}
-        .thank-you.active{display:block}
-        .thank-you h2{font-size:1.6rem;color:var(--primary);margin-bottom:12px}
-        .thank-you p{color:var(--text-light);margin-bottom:24px}
-        .thank-you .success-icon{font-size:4rem;margin-bottom:16px}
-        .continue-btn{display:inline-block;padding:14px 30px;background:var(--primary);color:var(--white);text-decoration:none;border-radius:10px;font-weight:600;transition:background 0.2s}
-        .continue-btn:hover{background:#2d4a6f}
-        
-        .form-container{display:block}
-        .form-container.hidden{display:none}
-        
-        /* Footer */
-        .site-footer{background:var(--primary);color:var(--white);padding:40px 20px;margin-top:60px}
-        .footer-inner{max-width:1200px;margin:0 auto;text-align:center}
-        .footer-inner p{font-size:0.875rem;opacity:0.8;margin:8px 0}
-        
-        /* Bottom ad */
-        .bottom-ad{max-width:800px;margin:40px auto 0;background:var(--white);padding:20px;border-radius:12px;text-align:center;border:1px solid var(--border)}
-        .bottom-ad .ad-label{display:block;font-size:0.7rem;color:var(--text-light);margin-bottom:10px;text-transform:uppercase}
-        
-        @media(max-width:900px){
-            .content-grid{grid-template-columns:1fr}
-            .sidebar{order:-1}
+        .thank-you {
+            display: none;
+            text-align: center;
+            padding: var(--space-3xl) var(--space-xl);
         }
-        @media(max-width:600px){
-            .form-header{padding:30px 24px}
-            .form-header h1{font-size:1.4rem}
-            .form-body{padding:30px 24px}
-            .nav-links{display:none}
+        
+        .thank-you.active { display: block; }
+        
+        .thank-you h2 {
+            font-size: 1.6rem;
+            color: var(--brand-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .thank-you .success-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .continue-btn {
+            display: inline-block;
+            padding: var(--space-md) var(--space-xl);
+            background: var(--brand-secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .continue-btn:hover {
+            background: var(--brand-primary);
+            color: white;
+        }
+        
+        .form-container { display: block; }
+        .form-container.hidden { display: none; }
+        
+        /* Sidebar */
+        .lead-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        
+        .sidebar-box {
+            background: var(--bg-primary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+        }
+        
+        .sidebar-box h3 {
+            font-size: 1rem;
+            color: var(--brand-primary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .sidebar-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-box li { margin: var(--space-sm) 0; }
+        
+        .sidebar-box a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .sidebar-box a:hover { color: var(--brand-secondary); }
+        .sidebar-box a::before { content: "→"; color: var(--brand-secondary); }
+        
+        @media (max-width: 900px) {
+            .lead-grid {
+                grid-template-columns: 1fr;
+            }
+            .lead-sidebar { order: 2; }
+        }
+        
+        @media (max-width: 600px) {
+            .lead-header { padding: var(--space-xl) var(--space-md); }
+            .lead-header h1 { font-size: 1.4rem; }
+            .lead-body { padding: var(--space-xl) var(--space-md); }
         }
     </style>
 </head>
 <body>
+    <!-- Unified Header -->
+    <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
     <header class="site-header">
-        <div class="header-inner">
-            <a href="index.html" class="site-logo">
-                <span class="logo-icon">VP</span>
-                VisaPathway
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="express-entry.html">Express Entry</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-icon">VP</span>
+                    VisaPathway
+                </a>
+                <nav class="site-nav">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="iq-test.html">🧠 IQ Test</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="mobile-only"><a href="free-guide.html" class="mobile-cta active">Free Guide</a></li>
+                    </ul>
+                    <a href="free-guide.html" class="nav-cta active">Free Guide</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="main-container">
+    <main class="lead-container">
         <!-- Top Ad Strip -->
-        <div class="ad-strip">
+        <div class="ad-container" style="margin-bottom:var(--space-xl)">
             <span class="ad-label">Advertisement</span>
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <div class="content-grid">
+        <div class="lead-grid">
             <!-- Main Form Section -->
-            <div class="form-section">
-                <div class="form-header">
-                    <span class="form-badge">Free Download</span>
+            <div class="lead-card">
+                <div class="lead-header">
+                    <span class="lead-badge">Free Download</span>
                     <h1>Canada Immigration Checklist 2026</h1>
                     <p>The complete step-by-step checklist used by Nigerians who successfully relocated to Canada. No fluff, just actionable steps.</p>
                 </div>
                 
-                <div class="form-body">
+                <div class="lead-body">
                     <div class="form-container" id="formContainer">
-                        <ul class="checklist">
+                        <ul class="lead-checklist">
                             <li>Express Entry application timeline</li>
                             <li>All required documents with costs in Naira</li>
                             <li>IELTS score requirements by program</li>
@@ -183,17 +358,17 @@
                             <input type="hidden" name="form-name" value="email-leads">
                             <input type="hidden" name="source" value="free-guide">
                             
-                            <div class="form-group">
+                            <div class="lead-form-group">
                                 <label for="name">First Name</label>
                                 <input type="text" id="name" name="name" placeholder="Enter your first name" required>
                             </div>
                             
-                            <div class="form-group">
+                            <div class="lead-form-group">
                                 <label for="email">Email Address</label>
                                 <input type="email" id="email" name="email" placeholder="your@email.com" required>
                             </div>
                             
-                            <button type="submit" class="submit-btn">Send Me The Free Checklist →</button>
+                            <button type="submit" class="lead-submit-btn">Send Me The Free Checklist →</button>
                         </form>
                         
                         <div class="trust-signals">
@@ -209,27 +384,27 @@
                             </div>
                         </div>
                         
-                        <p class="disclaimer">This is an independent educational resource. We are not affiliated with IRCC or any government agency.</p>
+                        <p class="lead-disclaimer">This is an independent educational resource. We are not affiliated with IRCC or any government agency.</p>
                     </div>
                     
                     <div class="thank-you" id="thankYou">
                         <div class="success-icon">✅</div>
                         <h2>Check Your Email!</h2>
-                        <p>Your Canada Immigration Checklist is on its way. Check your inbox (and spam folder, just in case).</p>
+                        <p style="color:var(--text-secondary);margin-bottom:var(--space-xl)">Your Canada Immigration Checklist is on its way. Check your inbox (and spam folder, just in case).</p>
                         <a href="blog.html" class="continue-btn">Continue Reading Our Guides →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Sidebar with Ads -->
-            <div class="sidebar">
-                <div class="sidebar-ad">
+            <!-- Sidebar -->
+            <div class="lead-sidebar">
+                <div class="ad-container">
                     <span class="ad-label">Advertisement</span>
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
                 
-                <div class="related-box">
+                <div class="sidebar-box">
                     <h3>📚 Popular Guides</h3>
                     <ul>
                         <li><a href="blog-move-to-canada-2026.html">How to Move to Canada 2026</a></li>
@@ -240,7 +415,7 @@
                     </ul>
                 </div>
                 
-                <div class="sidebar-ad">
+                <div class="ad-container">
                     <span class="ad-label">Advertisement</span>
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -249,41 +424,76 @@
         </div>
 
         <!-- Bottom Ad -->
-        <div class="bottom-ad">
+        <div class="ad-container" style="max-width:800px;margin:var(--space-2xl) auto 0">
             <span class="ad-label">Advertisement</span>
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </main>
 
+    <!-- Unified Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
-            <p><strong>VisaPathway</strong> - Expert immigration guides for Nigerians</p>
-            <p>© 2026 VisaPathway. Independent educational resource. Not affiliated with any government.</p>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">VisaPathway</div>
+                    <p style="color:rgba(255,255,255,0.7);font-size:0.9375rem;max-width:280px;">
+                        Expert immigration and finance guides for Nigerians looking to relocate or build wealth.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Immigration</h4>
+                    <ul>
+                        <li><a href="blog-move-to-canada-2026.html">Canada</a></li>
+                        <li><a href="blog-move-to-germany-2026.html">Germany</a></li>
+                        <li><a href="express-entry.html">Express Entry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Finance</h4>
+                    <ul>
+                        <li><a href="blog-cryptocurrency-nigeria-2026.html">Cryptocurrency</a></li>
+                        <li><a href="blog-forex-trading-nigeria-2026.html">Forex Trading</a></li>
+                        <li><a href="blog-ai-training-jobs-2026.html">AI Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 VisaPathway. All rights reserved.</p>
+                <p class="footer-disclaimer">Educational information only. Not affiliated with any government agency.</p>
+            </div>
         </div>
     </footer>
 
     <script>
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.getElementById('mobileMenuBtn').classList.toggle('active');
+            document.getElementById('menuOverlay').classList.toggle('active');
+            document.body.style.overflow = document.getElementById('navLinks').classList.contains('active') ? 'hidden' : '';
+        }
+        
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const form = e.target;
             const formData = new FormData(form);
             
-            // Track conversion with Meta Pixel
+            // Track conversion
             if(typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'Canada Immigration Checklist',
-                    content_category: 'Free Guide'
-                });
+                fbq('track', 'Lead', { content_name: 'Canada Immigration Checklist', content_category: 'Free Guide' });
             }
-            
-            // Track with Google Analytics
             if(typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'Lead',
-                    'event_label': 'Canada Immigration Checklist'
-                });
+                gtag('event', 'generate_lead', { 'event_category': 'Lead', 'event_label': 'Canada Immigration Checklist' });
             }
             
             // Submit to Netlify Forms

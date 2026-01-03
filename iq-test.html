@@ -19,190 +19,408 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        /* IQ Test specific overrides */
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#0ea5e9;--primary-dark:#0284c7;--success:#22c55e;--warning:#f59e0b;--bg:#f0f9ff;--white:#ffffff;--text:#0f172a;--text-light:#64748b;--border:#e2e8f0}
-        body{font-family:'Inter',sans-serif;background:var(--bg);min-height:100vh}
+        /* IQ Test specific styles - extends design system */
+        .iq-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-md);
+        }
         
-        .header{background:var(--white);border-bottom:1px solid var(--border);padding:16px 20px}
-        .header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-        .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700;font-size:1.25rem}
-        .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),#6366f1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
-        .header-nav{display:flex;align-items:center;gap:24px}
-        .nav-links{display:flex;gap:20px;list-style:none;margin:0;padding:0}
-        .nav-links a{text-decoration:none;color:var(--text);font-size:0.9rem;font-weight:500;padding:8px 0}
-        .nav-links a:hover,.nav-links a.active{color:var(--primary)}
+        .iq-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
         
-        /* Mobile menu */
-        .mobile-menu-btn{display:none;flex-direction:column;justify-content:center;background:none;border:none;padding:8px;cursor:pointer;z-index:1001}
-        .mobile-menu-btn span{display:block;width:24px;height:2px;background:var(--text);margin:4px 0;transition:all 0.3s}
-        .mobile-menu-btn.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
-        .mobile-menu-btn.active span:nth-child(2){opacity:0}
-        .mobile-menu-btn.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-        .mobile-menu-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:999}
-        .mobile-menu-overlay.active{display:block}
+        .brain-icon { font-size: 4rem; margin-bottom: var(--space-lg); }
         
-        /* 3-Column Layout */
-        .page-wrapper{max-width:1400px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:180px 1fr 180px;gap:30px}
-        .left-rail,.right-rail{position:sticky;top:20px;height:fit-content}
-        .rail-ad{background:var(--white);padding:15px;border-radius:12px;margin-bottom:20px;text-align:center;border:1px solid var(--border)}
-        .rail-ad .ad-label{display:block;font-size:0.65rem;color:var(--text-light);margin-bottom:8px;text-transform:uppercase}
-        .main{max-width:600px;margin:0 auto}
+        .iq-card h1 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
         
-        /* Landing Card */
-        .landing-card{background:var(--white);border-radius:20px;padding:50px 40px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-        .brain-icon{font-size:4rem;margin-bottom:20px}
-        .landing-card h1{font-size:1.75rem;color:var(--text);margin-bottom:8px}
-        .landing-card h1 span{color:var(--primary)}
-        .features{text-align:left;margin:30px 0;padding:0 20px}
-        .feature{display:flex;align-items:flex-start;gap:12px;margin:14px 0;color:var(--text)}
-        .feature-check{color:var(--success);font-size:1.25rem;flex-shrink:0}
-        .start-btn{width:100%;padding:18px;background:var(--primary);color:var(--white);border:none;border-radius:12px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.2s;margin-top:20px}
-        .start-btn:hover{background:var(--primary-dark);transform:translateY(-2px)}
-        .avg-score{color:var(--text-light);font-size:0.9rem;margin-top:20px}
-        .rating{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;padding:16px;background:var(--bg);border-radius:12px}
-        .stars{color:#fbbf24;font-size:1.25rem}
-        .rating-text{color:var(--text);font-size:0.9rem}
-        .rating-text strong{font-weight:700}
+        .iq-card h1 span { color: var(--brand-accent); }
+        
+        .iq-features {
+            text-align: left;
+            margin: var(--space-xl) 0;
+            padding: 0 var(--space-md);
+        }
+        
+        .iq-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            margin: var(--space-md) 0;
+            color: var(--text-primary);
+        }
+        
+        .iq-feature-check {
+            color: var(--success);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .start-btn {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--brand-accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-sans);
+        }
+        
+        .start-btn:hover {
+            background: var(--brand-secondary);
+            transform: translateY(-2px);
+        }
+        
+        .avg-score {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: var(--space-lg);
+        }
+        
+        .iq-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+            padding: var(--space-md);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+        }
+        
+        .stars { color: #fbbf24; font-size: 1.25rem; }
         
         /* Quiz Section */
-        .quiz-section{display:none}
-        .quiz-section.active{display:block}
-        .progress-bar{height:8px;background:var(--border);border-radius:4px;margin-bottom:30px;overflow:hidden}
-        .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),#6366f1);border-radius:4px;transition:width 0.3s}
-        .question-counter{text-align:center;color:var(--text-light);font-size:0.9rem;margin-bottom:10px}
-        .question-card{background:var(--white);border-radius:20px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-        .question-text{font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:30px;line-height:1.5}
-        .options{display:flex;flex-direction:column;gap:12px}
-        .option{padding:16px 20px;border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:12px}
-        .option:hover{border-color:var(--primary);background:#f0f9ff}
-        .option.selected{border-color:var(--primary);background:#e0f2fe}
-        .option-letter{width:32px;height:32px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--text)}
-        .option.selected .option-letter{background:var(--primary);color:var(--white)}
-        .nav-buttons{display:flex;gap:12px;margin-top:30px}
-        .nav-btn{flex:1;padding:16px;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.2s}
-        .nav-btn.secondary{background:var(--bg);color:var(--text)}
-        .nav-btn.primary{background:var(--primary);color:var(--white)}
-        .nav-btn:hover{transform:translateY(-2px)}
-        .nav-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+        .quiz-section { display: none; }
+        .quiz-section.active { display: block; }
+        
+        .progress-bar {
+            height: 8px;
+            background: var(--border-light);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-xl);
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brand-secondary), var(--brand-accent));
+            border-radius: var(--radius-full);
+            transition: width 0.3s;
+        }
+        
+        .question-counter {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.5;
+        }
+        
+        .iq-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .iq-option {
+            padding: var(--space-md);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--bg-primary);
+        }
+        
+        .iq-option:hover {
+            border-color: var(--brand-accent);
+            background: var(--bg-secondary);
+        }
+        
+        .iq-option.selected {
+            border-color: var(--brand-accent);
+            background: #e0f2fe;
+        }
+        
+        .option-letter {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex-shrink: 0;
+        }
+        
+        .iq-option.selected .option-letter {
+            background: var(--brand-accent);
+            color: white;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+        
+        .nav-btn {
+            flex: 1;
+            padding: var(--space-md);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-sans);
+        }
+        
+        .nav-btn.secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .nav-btn.primary {
+            background: var(--brand-accent);
+            color: white;
+        }
+        
+        .nav-btn:hover { transform: translateY(-2px); }
+        .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         
         /* Email Gate */
-        .email-gate{display:none}
-        .email-gate.active{display:block}
-        .email-card{background:var(--white);border-radius:20px;padding:50px 40px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-        .email-card h2{font-size:1.5rem;color:var(--text);margin-bottom:12px}
-        .email-card p{color:var(--text-light);margin-bottom:30px}
-        .score-preview{font-size:3rem;font-weight:800;color:var(--primary);margin:20px 0;filter:blur(8px)}
-        .unlock-text{font-size:0.9rem;color:var(--text-light);margin-bottom:20px}
-        .form-group{margin-bottom:16px;text-align:left}
-        .form-group label{display:block;font-size:0.875rem;font-weight:600;color:var(--text);margin-bottom:8px}
-        .form-group input{width:100%;padding:14px 16px;border:2px solid var(--border);border-radius:10px;font-size:1rem;font-family:inherit}
-        .form-group input:focus{outline:none;border-color:var(--primary)}
-        .submit-btn{width:100%;padding:18px;background:var(--success);color:var(--white);border:none;border-radius:12px;font-size:1.1rem;font-weight:600;cursor:pointer;margin-top:10px}
-        .submit-btn:hover{background:#16a34a}
+        .email-gate { display: none; }
+        .email-gate.active { display: block; }
+        
+        .score-preview {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--brand-accent);
+            margin: var(--space-lg) 0;
+            filter: blur(8px);
+        }
+        
+        .unlock-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .iq-form-group {
+            margin-bottom: var(--space-md);
+            text-align: left;
+        }
+        
+        .iq-form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .iq-form-group input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: var(--font-sans);
+        }
+        
+        .iq-form-group input:focus {
+            outline: none;
+            border-color: var(--brand-accent);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--success);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-sans);
+        }
+        
+        .submit-btn:hover { background: #16a34a; }
         
         /* Results */
-        .results-section{display:none}
-        .results-section.active{display:block}
-        .results-card{background:var(--white);border-radius:20px;padding:50px 40px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-        .results-card h2{font-size:1.5rem;color:var(--text);margin-bottom:30px}
-        .score-circle{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#6366f1);display:flex;align-items:center;justify-content:center;margin:0 auto 30px;box-shadow:0 10px 30px rgba(14,165,233,0.3)}
-        .score-circle span{font-size:3rem;font-weight:800;color:var(--white)}
-        .score-label{font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:10px}
-        .score-desc{color:var(--text-light);margin-bottom:30px;line-height:1.6}
-        .percentile{background:var(--bg);padding:20px;border-radius:12px;margin-bottom:30px}
-        .percentile-bar{height:12px;background:var(--border);border-radius:6px;margin-top:10px;position:relative}
-        .percentile-fill{height:100%;background:linear-gradient(90deg,var(--primary),#6366f1);border-radius:6px}
-        .percentile-marker{position:absolute;top:-8px;width:4px;height:28px;background:var(--text);border-radius:2px}
-        .share-section{margin-top:30px}
-        .share-text{font-size:0.9rem;color:var(--text-light);margin-bottom:15px}
-        .share-btn{display:inline-block;padding:12px 30px;background:var(--primary);color:var(--white);text-decoration:none;border-radius:10px;font-weight:600}
+        .results-section { display: none; }
+        .results-section.active { display: block; }
         
-        /* Ad Container */
-        .ad-container{background:var(--white);padding:20px;border-radius:12px;margin:20px 0;text-align:center}
-        .ad-label{display:block;font-size:0.7rem;color:var(--text-light);margin-bottom:10px;text-transform:uppercase}
-        
-        .footer{text-align:center;padding:40px 20px;color:var(--text-light);font-size:0.8rem}
-        .footer a{color:var(--primary);text-decoration:none}
-        
-        @media(max-width:1100px){
-            .page-wrapper{grid-template-columns:1fr;max-width:600px}
-            .left-rail,.right-rail{display:none}
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--brand-secondary), var(--brand-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-xl);
+            box-shadow: 0 10px 30px rgba(14,165,233,0.3);
         }
-        @media(max-width:768px){
-            .nav-links{position:fixed;top:0;right:-280px;width:280px;height:100vh;background:var(--white);flex-direction:column;padding:80px 24px 24px;gap:8px;box-shadow:-4px 0 20px rgba(0,0,0,0.15);transition:right 0.3s;z-index:1000}
-            .nav-links.active{right:0}
-            .nav-links li{width:100%}
-            .nav-links a{display:block;padding:14px 16px;font-size:1rem;border-radius:8px}
-            .nav-links a:hover{background:var(--bg)}
-            .mobile-menu-btn{display:flex}
+        
+        .score-circle span {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
         }
-        @media(max-width:600px){
-            .landing-card,.question-card,.email-card,.results-card{padding:30px 24px}
-            .landing-card h1{font-size:1.4rem}
-            .question-text{font-size:1.1rem}
-            .page-wrapper{padding:20px}
+        
+        .score-label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .score-desc {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.6;
+        }
+        
+        .percentile {
+            background: var(--bg-secondary);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .percentile-bar {
+            height: 12px;
+            background: var(--border-light);
+            border-radius: 6px;
+            margin-top: var(--space-sm);
+            position: relative;
+        }
+        
+        .percentile-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brand-secondary), var(--brand-accent));
+            border-radius: 6px;
+        }
+        
+        .percentile-marker {
+            position: absolute;
+            top: -8px;
+            width: 4px;
+            height: 28px;
+            background: var(--text-primary);
+            border-radius: 2px;
+        }
+        
+        .share-section { margin-top: var(--space-xl); }
+        .share-text { font-size: 0.9rem; color: var(--text-muted); margin-bottom: var(--space-md); }
+        
+        .share-btn {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-xl);
+            background: var(--brand-secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+        }
+        
+        @media (max-width: 600px) {
+            .iq-card { padding: var(--space-xl) var(--space-md); }
+            .iq-card h1 { font-size: 1.4rem; }
+            .question-text { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
+    <!-- Unified Header -->
     <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
-    <header class="header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">🧠</div>
-                <span>IQ<strong>Test</strong></span>
-            </a>
-            <nav class="header-nav">
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="iq-test.html" class="active">IQ Test</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-icon">VP</span>
+                    VisaPathway
+                </a>
+                <nav class="site-nav">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="iq-test.html" class="active">🧠 IQ Test</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="mobile-only"><a href="free-guide.html" class="mobile-cta">Free Guide</a></li>
+                    </ul>
+                    <a href="free-guide.html" class="nav-cta">Free Guide</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-        <main class="main">
-            <!-- Landing -->
-            <div class="landing-section" id="landing">
-            <div class="landing-card">
+    <main class="iq-container">
+        <!-- Landing -->
+        <div class="landing-section" id="landing">
+            <div class="iq-card">
                 <div class="brain-icon">🧠</div>
-                <h1>Ready to begin the <span>IQ Test!</span></h1>
+                <h1>Test Your <span>IQ Score</span></h1>
+                <p style="color:var(--text-secondary)">Discover your cognitive abilities with our free 15-question assessment</p>
                 
-                <div class="features">
-                    <div class="feature">
-                        <span class="feature-check">✓</span>
-                        <span>You will receive 15 questions of increasing difficulty</span>
+                <div class="iq-features">
+                    <div class="iq-feature">
+                        <span class="iq-feature-check">✓</span>
+                        <span>15 questions of increasing difficulty</span>
                     </div>
-                    <div class="feature">
-                        <span class="feature-check">✓</span>
-                        <span>Choose the correct option from those provided</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-check">✓</span>
+                    <div class="iq-feature">
+                        <span class="iq-feature-check">✓</span>
                         <span>Takes only 5 minutes to complete</span>
+                    </div>
+                    <div class="iq-feature">
+                        <span class="iq-feature-check">✓</span>
+                        <span>Instant results with detailed analysis</span>
                     </div>
                 </div>
                 
-                <button class="start-btn" onclick="startQuiz()">Start IQ Test</button>
+                <button class="start-btn" onclick="startQuiz()">Start IQ Test →</button>
                 
                 <p class="avg-score">Today's average IQ score: <strong>94</strong></p>
                 
-                <div class="rating">
+                <div class="iq-rating">
                     <span class="stars">★★★★★</span>
-                    <span class="rating-text"><strong>4.8</strong> (based on 2,847 reviews)</span>
+                    <span><strong>4.8</strong> (2,847 reviews)</span>
                 </div>
             </div>
             
-            <div class="ad-container">
+            <div class="ad-container" style="margin-top:var(--space-xl)">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -216,9 +434,9 @@
             </div>
             <p class="question-counter" id="questionCounter">Question 1 of 15</p>
             
-            <div class="question-card">
+            <div class="iq-card">
                 <p class="question-text" id="questionText"></p>
-                <div class="options" id="options"></div>
+                <div class="iq-options" id="options"></div>
                 
                 <div class="nav-buttons">
                     <button class="nav-btn secondary" id="prevBtn" onclick="prevQuestion()" disabled>← Previous</button>
@@ -229,12 +447,12 @@
 
         <!-- Email Gate -->
         <div class="email-gate" id="emailGate">
-            <div class="email-card">
-                <h2>🎉 Test Complete!</h2>
-                <p>You answered all 15 questions. Your IQ score is ready!</p>
+            <div class="iq-card">
+                <h2 style="font-size:1.5rem;margin-bottom:var(--space-sm)">🎉 Test Complete!</h2>
+                <p style="color:var(--text-secondary)">You answered all 15 questions. Your IQ score is ready!</p>
                 
                 <div class="score-preview" id="blurredScore">???</div>
-                <p class="unlock-text">Enter your email to unlock your full IQ results and analysis</p>
+                <p class="unlock-text">Enter your email to unlock your full IQ results</p>
                 
                 <form id="emailForm" name="iq-test-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <p style="display:none"><input name="bot-field"></p>
@@ -242,12 +460,12 @@
                     <input type="hidden" name="source" value="iq-test">
                     <input type="hidden" name="score" id="hiddenScore">
                     
-                    <div class="form-group">
+                    <div class="iq-form-group">
                         <label for="name">First Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your first name" required>
                     </div>
                     
-                    <div class="form-group">
+                    <div class="iq-form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" placeholder="your@email.com" required>
                     </div>
@@ -256,7 +474,7 @@
                 </form>
             </div>
             
-            <div class="ad-container">
+            <div class="ad-container" style="margin-top:var(--space-xl)">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -265,8 +483,8 @@
 
         <!-- Results -->
         <div class="results-section" id="results">
-            <div class="results-card">
-                <h2>Your IQ Test Results</h2>
+            <div class="iq-card">
+                <h2 style="font-size:1.5rem;margin-bottom:var(--space-xl)">Your IQ Test Results</h2>
                 
                 <div class="score-circle">
                     <span id="finalScore">0</span>
@@ -289,7 +507,7 @@
                 </div>
             </div>
             
-            <div class="ad-container">
+            <div class="ad-container" style="margin-top:var(--space-xl)">
                 <span class="ad-label">Advertisement</span>
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3212022468120924" data-ad-slot="9057164066" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -297,13 +515,50 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <p>© 2026 VisaPathway IQ Test. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-        <p style="margin-top:10px">This test is for entertainment purposes only and does not constitute a clinical IQ assessment.</p>
+    <!-- Unified Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">VisaPathway</div>
+                    <p style="color:rgba(255,255,255,0.7);font-size:0.9375rem;max-width:280px;">
+                        Expert immigration and finance guides for Nigerians looking to relocate or build wealth.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Immigration</h4>
+                    <ul>
+                        <li><a href="blog-move-to-canada-2026.html">Canada</a></li>
+                        <li><a href="blog-move-to-germany-2026.html">Germany</a></li>
+                        <li><a href="express-entry.html">Express Entry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Finance</h4>
+                    <ul>
+                        <li><a href="blog-cryptocurrency-nigeria-2026.html">Cryptocurrency</a></li>
+                        <li><a href="blog-forex-trading-nigeria-2026.html">Forex Trading</a></li>
+                        <li><a href="blog-ai-training-jobs-2026.html">AI Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 VisaPathway. All rights reserved.</p>
+                <p class="footer-disclaimer">IQ Test is for entertainment purposes only and does not constitute a clinical assessment.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // IQ Test Questions (pattern recognition, logic, math)
         const questions = [
             { q: "What number comes next in the sequence: 2, 4, 8, 16, ?", options: ["24", "32", "30", "20"], answer: 1 },
             { q: "If all roses are flowers and some flowers fade quickly, which statement is true?", options: ["All roses fade quickly", "Some roses may fade quickly", "No roses fade quickly", "Roses never fade"], answer: 1 },
@@ -330,7 +585,6 @@
             document.getElementById('landing').style.display = 'none';
             document.getElementById('quiz').classList.add('active');
             loadQuestion();
-            
             if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: 'IQ Test Started' });
             if(typeof gtag !== 'undefined') gtag('event', 'quiz_start', { 'event_category': 'IQ Test' });
         }
@@ -342,7 +596,7 @@
             document.getElementById('progressFill').style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
             
             const optionsHtml = q.options.map((opt, i) => 
-                `<div class="option ${answers[currentQuestion] === i ? 'selected' : ''}" onclick="selectOption(${i})">
+                `<div class="iq-option ${answers[currentQuestion] === i ? 'selected' : ''}" onclick="selectOption(${i})">
                     <span class="option-letter">${String.fromCharCode(65 + i)}</span>
                     <span>${opt}</span>
                 </div>`
@@ -376,19 +630,13 @@
         }
 
         function finishQuiz() {
-            // Calculate score
             let correct = 0;
-            answers.forEach((ans, i) => {
-                if (ans === questions[i].answer) correct++;
-            });
-            
-            // Convert to IQ-like score (85-135 range based on performance)
+            answers.forEach((ans, i) => { if (ans === questions[i].answer) correct++; });
             const percentage = correct / questions.length;
-            score = Math.round(85 + (percentage * 50)); // 85-135 range
+            score = Math.round(85 + (percentage * 50));
             
             document.getElementById('hiddenScore').value = score;
             document.getElementById('blurredScore').textContent = score;
-            
             document.getElementById('quiz').classList.remove('active');
             document.getElementById('emailGate').classList.add('active');
             
@@ -398,41 +646,24 @@
 
         document.getElementById('emailForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const formData = new FormData(this);
-            
             if(typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'IQ Test Lead', value: score });
             if(typeof gtag !== 'undefined') gtag('event', 'generate_lead', { 'event_category': 'IQ Test Lead' });
-            
-            // Submit to Netlify
-            fetch('/', { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
-                body: new URLSearchParams(formData).toString() 
-            }).then(() => showResults()).catch(() => showResults());
+            fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(formData).toString() }).then(() => showResults()).catch(() => showResults());
         });
 
         function showResults() {
             document.getElementById('emailGate').classList.remove('active');
             document.getElementById('results').classList.add('active');
-            
             document.getElementById('finalScore').textContent = score;
             
-            // Set label and description based on score
             let label, desc, percentile;
-            if (score >= 130) {
-                label = "Exceptional"; desc = "Your cognitive abilities are in the top tier. You demonstrate exceptional problem-solving and analytical skills."; percentile = 98;
-            } else if (score >= 120) {
-                label = "Superior"; desc = "Your intelligence is well above average. You excel at logical reasoning and pattern recognition."; percentile = 91;
-            } else if (score >= 110) {
-                label = "Above Average"; desc = "Your cognitive abilities are higher than most people. You have strong analytical thinking skills."; percentile = 75;
-            } else if (score >= 100) {
-                label = "Average"; desc = "Your cognitive abilities are on par with the general population. This is a perfectly normal score."; percentile = 50;
-            } else if (score >= 90) {
-                label = "Low Average"; desc = "Your score falls within the normal range. Consider practicing more cognitive exercises."; percentile = 25;
-            } else {
-                label = "Below Average"; desc = "Don't worry! IQ is just one measure. You can improve with practice and learning."; percentile = 10;
-            }
+            if (score >= 130) { label = "Exceptional"; desc = "Your cognitive abilities are in the top tier. You demonstrate exceptional problem-solving and analytical skills."; percentile = 98; }
+            else if (score >= 120) { label = "Superior"; desc = "Your intelligence is well above average. You excel at logical reasoning and pattern recognition."; percentile = 91; }
+            else if (score >= 110) { label = "Above Average"; desc = "Your cognitive abilities are higher than most people. You have strong analytical thinking skills."; percentile = 75; }
+            else if (score >= 100) { label = "Average"; desc = "Your cognitive abilities are on par with the general population. This is a perfectly normal score."; percentile = 50; }
+            else if (score >= 90) { label = "Low Average"; desc = "Your score falls within the normal range. Consider practicing more cognitive exercises."; percentile = 25; }
+            else { label = "Below Average"; desc = "Don't worry! IQ is just one measure. You can improve with practice and learning."; percentile = 10; }
             
             document.getElementById('scoreLabel').textContent = label;
             document.getElementById('scoreDesc').textContent = desc;
@@ -441,7 +672,6 @@
             document.getElementById('percentileMarker').style.left = percentile + '%';
         }
         
-        // Mobile menu toggle
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
             document.getElementById('mobileMenuBtn').classList.toggle('active');
@@ -451,4 +681,3 @@
     </script>
 </body>
 </html>
-
