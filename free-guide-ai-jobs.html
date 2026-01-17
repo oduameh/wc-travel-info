@@ -81,12 +81,17 @@
     </style>
 </head>
 <body>
+    <div class="mobile-menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
     <header class="site-header">
         <div class="header-inner">
             <a href="index.html" class="site-logo"><span class="logo-icon">VP</span>VisaPathway</a>
-            <nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="blog-ai-training-jobs-2026.html">AI Jobs Guide</a></li></ul></nav>
+            <nav style="display:flex;align-items:center;gap:16px">
+                <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="blog-ai-training-jobs-2026.html">AI Jobs Guide</a></li></ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" style="display:none;flex-direction:column;background:none;border:none;padding:8px;cursor:pointer"><span style="display:block;width:24px;height:2px;background:#1e293b;margin:4px 0"></span><span style="display:block;width:24px;height:2px;background:#1e293b;margin:4px 0"></span><span style="display:block;width:24px;height:2px;background:#1e293b;margin:4px 0"></span></button>
+            </nav>
         </div>
     </header>
+    <style>.mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}.mobile-menu-overlay.active{display:block}@media(max-width:600px){.mobile-menu-btn{display:flex!important}.nav-links{position:fixed;top:0;right:-280px;width:280px;height:100vh;background:#fff;flex-direction:column;padding:80px 24px 24px;gap:8px;box-shadow:-4px 0 20px rgba(0,0,0,0.15);transition:right 0.3s;z-index:1000;display:flex!important}.nav-links.active{right:0}.nav-links li{width:100%}.nav-links a{display:block;padding:14px 16px;border-radius:8px}}</style>
 
     <main class="main-container">
         <div class="ad-strip">
@@ -193,6 +198,7 @@
     </footer>
 
     <script>
+        function toggleMobileMenu(){document.getElementById('navLinks').classList.toggle('active');document.getElementById('menuOverlay').classList.toggle('active');document.body.style.overflow=document.getElementById('navLinks').classList.contains('active')?'hidden':'';}
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = e.target;

@@ -1,84 +1,126 @@
 <!DOCTYPE html>
-<html lang="en-NG">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Page Not Found | Canada Mexico Visa Info</title>
+    <title>Page Not Found | VisaPathway</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4C1Z3P77F"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J4C1Z3P77F');
-    </script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J4C1Z3P77F');</script>
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #FAF7F2 0%, #F0EBE3 100%);
+        .error-page {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .error-content {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            color: #2C2C2C;
-        }
-        .container {
+            padding: var(--space-2xl) var(--space-md);
             text-align: center;
+        }
+        .error-card {
             max-width: 500px;
         }
-        .icon {
+        .error-icon {
             font-size: 5rem;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-lg);
         }
-        h1 {
+        .error-card h1 {
             font-size: 2rem;
-            color: #1B4D3E;
-            margin-bottom: 0.5rem;
+            color: var(--brand-primary);
+            margin-bottom: var(--space-sm);
         }
-        p {
-            color: #5C5C5C;
-            margin-bottom: 1.5rem;
+        .error-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
             line-height: 1.6;
         }
-        .btn {
+        .error-btn {
             display: inline-block;
-            padding: 12px 32px;
-            background: #1B4D3E;
+            padding: var(--space-md) var(--space-xl);
+            background: var(--brand-secondary);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
             font-weight: 600;
             transition: all 0.2s;
         }
-        .btn:hover {
-            background: #2D6A4F;
+        .error-btn:hover {
+            background: var(--brand-primary);
+            color: white;
             transform: translateY(-2px);
         }
-        .footer {
-            margin-top: 3rem;
-            font-size: 0.85rem;
-            color: #8A8A8A;
+        .error-links {
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-light);
+        }
+        .error-links p {
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+        .error-links a {
+            margin: 0 var(--space-sm);
+            color: var(--brand-secondary);
+            font-weight: 500;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="icon">⚽</div>
-        <h1>Page Not Found</h1>
-        <p>
-            Sorry, the page you're looking for doesn't exist or has been moved. 
-            Let's get you back on track.
-        </p>
-        <a href="/" class="btn">Go to Homepage</a>
-        <div class="footer">
-            <p>Canada Mexico Visa Info • Educational Content About World Cup 2026</p>
+<body class="error-page">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-icon">VP</span>
+                    VisaPathway
+                </a>
+                <nav class="site-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <main class="error-content">
+        <div class="error-card">
+            <div class="error-icon">🔍</div>
+            <h1>Page Not Found</h1>
+            <p>Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+            <a href="index.html" class="error-btn">Go to Homepage →</a>
+            
+            <div class="error-links">
+                <p>Or try one of these popular pages:</p>
+                <a href="blog-move-to-canada-2026.html">Canada Guide</a>
+                <a href="blog-move-to-germany-2026.html">Germany Guide</a>
+                <a href="blog.html">All Articles</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top:0">
+        <div class="footer-inner">
+            <div class="footer-bottom" style="border-top:none;padding-top:0">
+                <p>© 2026 VisaPathway. All rights reserved.</p>
+                <p class="footer-disclaimer">Educational information only. Not affiliated with any government agency.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
-
